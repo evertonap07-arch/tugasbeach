@@ -356,9 +356,3 @@ if ("IntersectionObserver" in window) {
 </html>
 '''
 
-arquivo = Path("index.html")
-arquivo.write_text(html, encoding="utf-8")
-
-print("Pronto! Arquivo criado:", arquivo.resolve())
-print("Tamanho:", arquivo.stat().st_size, "bytes")
-print("Abra o index.html no navegador para testar.")
