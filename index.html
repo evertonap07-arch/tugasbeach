@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0B0B0B">
-<meta name="description" content="Tuga's Beach: pastéis e gelados. Monte seu pedido e fale diretamente com a loja pelo WhatsApp.">
-<title>Tuga's Beach | Pastéis &amp; Gelados</title>
+<meta name="description" content="Tuga's Beach: pastéis e gelados. Escolha seus favoritos e peça pelo WhatsApp.">
+<title>Tuga's Beach | Pastéis & Gelados</title>
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 44'%3E%3Cpath d='M4 40C4 18 16 5 32 5s28 13 28 35zM32 5v35M4 40h56M18 12l6 14h16l6-14M24 26l-6 14M40 26l6 14M24 26h16' fill='none' stroke='%2300A896' stroke-width='3'/%3E%3C/svg%3E">
 
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700;1,800&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700;1,800&family=Nunito+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 :root {
@@ -29,7 +29,7 @@
 
 html {
  scroll-behavior:smooth;
- scroll-padding-top:85px;
+ scroll-padding-top:100px;
 }
 
 body {
@@ -46,56 +46,107 @@ button { cursor:pointer; }
 
 .wrap {
  width:100%;
- max-width:650px;
+ max-width:760px;
  margin:auto;
- padding:0 18px;
+ padding:0 20px;
 }
 
 /* CABEÇALHO */
 
 .hero {
+ position:relative;
+ overflow:hidden;
  text-align:center;
- padding:30px 0;
+ padding:38px 0 32px;
  border-bottom:1px solid var(--linha);
+ background:
+ radial-gradient(ellipse at 50% 0%,#00a89620,transparent 65%),
+ var(--preto);
+}
+
+.hero::after {
+ content:"";
+ position:absolute;
+ bottom:0;
+ left:50%;
+ transform:translateX(-50%);
+ width:90px;
+ height:3px;
+ background:var(--agua);
+}
+
+.brand-label {
+ display:inline-block;
+ color:var(--sol);
+ font-size:11px;
+ font-weight:900;
+ letter-spacing:4px;
+ text-transform:uppercase;
+ margin-bottom:12px;
 }
 
 .logo {
- font:italic 800 65px/.85 var(--titulo);
+ font:italic 800 72px/.78 var(--titulo);
  text-transform:uppercase;
- margin:20px 0;
+ margin:12px 0 20px;
+ letter-spacing:-1px;
 }
 
 .logo span {
  display:block;
  color:var(--agua);
- font-size:57px;
- margin-left:25px;
+ font-size:64px;
+ margin:12px 0 0 35px;
 }
 
 .shell {
- width:75px;
- height:50px;
+ width:66px;
+ height:46px;
  fill:none;
  stroke:var(--agua);
  stroke-width:2.5;
+ display:block;
+ margin:0 auto 13px;
 }
 
 .sub {
  color:var(--areia);
  font:italic 700 17px var(--titulo);
- letter-spacing:4px;
+ letter-spacing:5px;
  text-transform:uppercase;
 }
 
 .slogan {
- font:italic 700 25px/1.1 var(--titulo);
+ font:italic 700 27px/1.05 var(--titulo);
  color:var(--agua);
+ margin:20px 0 9px;
 }
 
 .intro {
  font-size:14px;
  color:var(--muted);
  line-height:1.6;
+ max-width:400px;
+ margin:0 auto;
+}
+
+.hero-bottom {
+ display:flex;
+ justify-content:center;
+ gap:9px;
+ flex-wrap:wrap;
+ margin-top:20px;
+}
+
+.hero-tag {
+ border:1px solid var(--linha);
+ color:var(--areia);
+ padding:7px 12px;
+ border-radius:3px;
+ font-size:11px;
+ font-weight:800;
+ letter-spacing:1px;
+ text-transform:uppercase;
 }
 
 /* NAVEGAÇÃO */
@@ -103,9 +154,10 @@ button { cursor:pointer; }
 nav {
  position:sticky;
  top:0;
- z-index:5;
- background:#0B0B0B;
+ z-index:10;
+ background:#0B0B0BF2;
  border-bottom:1px solid var(--linha);
+ backdrop-filter:blur(12px);
 }
 
 nav ul {
@@ -114,21 +166,26 @@ nav ul {
  overflow-x:auto;
  list-style:none;
  margin:auto;
- padding:10px 16px;
- max-width:650px;
- scrollbar-width:thin;
+ padding:12px 20px;
+ max-width:760px;
+ scrollbar-width:none;
 }
 
+nav ul::-webkit-scrollbar { display:none; }
+
 nav a {
- display:block;
+ display:flex;
+ align-items:center;
+ gap:7px;
  white-space:nowrap;
- padding:8px 14px;
+ padding:10px 16px;
  border:1px solid var(--linha);
  border-radius:4px;
  color:var(--texto);
  text-decoration:none;
  font:italic 700 18px var(--titulo);
  text-transform:uppercase;
+ transition:.2s;
 }
 
 nav a.active {
@@ -137,113 +194,201 @@ nav a.active {
  color:#000;
 }
 
+nav a:hover {
+ border-color:var(--agua);
+}
+
+.nav-count {
+ font:800 10px var(--texto-fonte);
+ opacity:.7;
+}
+
+/* CONTEÚDO */
+
+main {
+ padding-bottom:35px;
+}
+
+.menu-intro {
+ padding:28px 0 7px;
+}
+
+.menu-eyebrow {
+ color:var(--sol);
+ font-size:11px;
+ font-weight:900;
+ letter-spacing:3px;
+ text-transform:uppercase;
+ margin:0 0 7px;
+}
+
+.menu-intro h1 {
+ font:italic 800 38px/.95 var(--titulo);
+ text-transform:uppercase;
+ margin:0;
+}
+
+.menu-intro p {
+ color:var(--muted);
+ font-size:13px;
+ margin:9px 0 0;
+}
+
 /* CATEGORIAS */
 
 section {
- padding:28px 0 4px;
- scroll-margin-top:75px;
-}
-
-h2 {
- font:italic 800 39px/1 var(--titulo);
- text-transform:uppercase;
- margin:0;
+ padding:28px 0 3px;
+ scroll-margin-top:100px;
 }
 
 .heading {
  display:flex;
  align-items:center;
- gap:10px;
+ gap:12px;
  margin-bottom:7px;
 }
 
 .heading svg {
- width:30px;
+ width:32px;
+ height:28px;
  stroke:var(--sol);
  fill:none;
  stroke-width:2;
  flex-shrink:0;
 }
 
+h2 {
+ font:italic 800 38px/1 var(--titulo);
+ text-transform:uppercase;
+ margin:0;
+}
+
 .note {
- font-size:14px;
+ font-size:13px;
  color:var(--muted);
- margin:0 0 14px;
+ margin:0 0 16px;
 }
 
 /* PRODUTOS */
 
 .product {
- background:var(--card);
+ position:relative;
+ display:flex;
+ flex-direction:column;
+ background:linear-gradient(135deg,#1a1a17,#131311);
  border:1px solid var(--linha);
- border-radius:8px;
- padding:14px;
+ border-radius:7px;
+ padding:16px;
  margin-bottom:11px;
+ transition:border-color .2s,transform .2s;
+}
+
+.product:hover {
+ border-color:#00A89680;
+ transform:translateY(-2px);
+}
+
+.product-info {
+ flex:1;
+}
+
+.product-top {
+ display:flex;
+ align-items:flex-start;
+ justify-content:space-between;
+ gap:10px;
 }
 
 h3 {
  font:italic 800 25px/1.05 var(--titulo);
- margin:0 0 5px;
+ margin:0 0 6px;
 }
 
 .desc {
- font-size:14px;
+ font-size:13px;
  color:var(--muted);
  margin:0;
- line-height:1.5;
+ line-height:1.55;
 }
 
 .bottom {
  display:flex;
  align-items:center;
  justify-content:space-between;
- gap:10px;
- margin-top:12px;
+ gap:12px;
+ margin-top:15px;
+ padding-top:12px;
+ border-top:1px solid #ffffff0d;
 }
 
 .price {
- font:italic 800 27px var(--titulo);
+ font:italic 800 29px var(--titulo);
  color:var(--sol);
  white-space:nowrap;
 }
 
 .add {
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ gap:7px;
+ min-width:125px;
  border:1px solid var(--agua);
  border-radius:4px;
  background:var(--agua);
  color:#000;
- font-weight:800;
- padding:10px 15px;
+ font-size:12px;
+ font-weight:900;
+ padding:11px 14px;
+ transition:.2s;
 }
 
-.add:hover,.send:hover { filter:brightness(1.08); }
+.add:hover {
+ background:#08c5b2;
+}
 
-/* CARRINHO */
+.add:active {
+ transform:scale(.97);
+}
+
+.add-symbol {
+ font-size:19px;
+ line-height:12px;
+}
+
+/* CARRINHO FIXO */
 
 .cartbar {
  position:fixed;
- bottom:12px;
+ bottom:14px;
  left:50%;
  transform:translateX(-50%);
- z-index:8;
- width:calc(100% - 24px);
- max-width:580px;
+ z-index:15;
+ width:calc(100% - 28px);
+ max-width:620px;
  background:var(--sol);
  color:#000;
- padding:12px 15px;
- border-radius:8px;
+ padding:13px 16px;
+ border-radius:6px;
  display:flex;
  align-items:center;
  justify-content:space-between;
- gap:10px;
- box-shadow:0 5px 20px #0009;
+ gap:12px;
+ box-shadow:0 8px 30px #000b;
+ border:1px solid #ffca7c;
 }
 
 .cartbar[hidden] { display:none; }
 
-.cartbar strong {
+.cart-info span {
  display:block;
- font:italic 800 24px var(--titulo);
+ font-size:11px;
+ font-weight:800;
+}
+
+.cart-info strong {
+ display:block;
+ font:italic 800 27px var(--titulo);
 }
 
 .checkout {
@@ -251,8 +396,10 @@ h3 {
  color:white;
  border:0;
  border-radius:4px;
- padding:12px;
- font-weight:800;
+ padding:13px 18px;
+ font-size:12px;
+ font-weight:900;
+ text-transform:uppercase;
 }
 
 /* RODAPÉ */
@@ -261,20 +408,45 @@ footer {
  background:var(--areia);
  color:#111;
  text-align:center;
- margin-top:35px;
- padding:30px 0 100px;
+ margin-top:30px;
+ padding:35px 0 100px;
 }
 
-footer h2 { font-size:34px; }
+.footer-shell {
+ width:45px;
+ height:32px;
+ stroke:#111;
+ fill:none;
+ stroke-width:2.5;
+ margin-bottom:10px;
+}
+
+footer h2 {
+ font-size:36px;
+}
 
 footer p {
+ font-size:14px;
  font-weight:700;
  line-height:1.5;
 }
 
 footer strong {
  display:block;
- margin:15px 0;
+ margin:17px 0;
+ font-size:15px;
+}
+
+.footer-contact {
+ display:inline-block;
+ background:#111;
+ color:var(--areia);
+ text-decoration:none;
+ font-size:12px;
+ font-weight:900;
+ padding:12px 20px;
+ border-radius:4px;
+ margin:5px 0 12px;
 }
 
 .footer-links {
@@ -291,17 +463,18 @@ footer strong {
  color:#111;
  text-decoration:underline;
  font-weight:800;
+ font-size:12px;
  padding:5px;
 }
 
-/* JANELAS */
+/* MODAIS */
 
 .modal {
  display:none;
  position:fixed;
  inset:0;
- z-index:20;
- background:#000c;
+ z-index:30;
+ background:#000d;
  align-items:center;
  justify-content:center;
  padding:12px;
@@ -312,12 +485,12 @@ footer strong {
 .panel {
  background:#111;
  border:1px solid var(--linha);
- border-radius:10px;
+ border-radius:8px;
  width:100%;
  max-width:540px;
  max-height:92vh;
  overflow:auto;
- padding:18px;
+ padding:20px;
 }
 
 .panel-head {
@@ -325,9 +498,14 @@ footer strong {
  align-items:center;
  justify-content:space-between;
  gap:10px;
+ padding-bottom:13px;
+ border-bottom:1px solid var(--linha);
+ margin-bottom:12px;
 }
 
-.panel-head h2 { font-size:30px; }
+.panel-head h2 {
+ font-size:32px;
+}
 
 .close {
  background:#222;
@@ -337,20 +515,26 @@ footer strong {
  width:38px;
  height:38px;
  font-size:22px;
+ flex-shrink:0;
 }
 
 .cartline {
  display:grid;
  grid-template-columns:1fr auto;
  gap:8px;
- padding:12px 0;
+ padding:13px 0;
  border-bottom:1px solid var(--linha);
+}
+
+.cartline strong {
+ font-size:14px;
 }
 
 .cartline small {
  display:block;
  color:var(--muted);
  margin-top:4px;
+ font-size:12px;
 }
 
 .qty {
@@ -360,29 +544,31 @@ footer strong {
 }
 
 .qty button {
- width:30px;
- height:30px;
+ width:32px;
+ height:32px;
  border:0;
  border-radius:4px;
  background:var(--agua);
+ color:#000;
  font-size:18px;
- font-weight:800;
+ font-weight:900;
 }
 
 .total {
  display:flex;
  justify-content:space-between;
- padding:16px 0;
- font-weight:800;
- font-size:18px;
+ padding:17px 0;
+ font-weight:900;
+ font-size:17px;
  gap:10px;
+ border-bottom:1px solid var(--linha);
 }
 
 label {
  display:block;
- font-size:14px;
- font-weight:700;
- margin:12px 0 5px;
+ font-size:13px;
+ font-weight:800;
+ margin:13px 0 6px;
 }
 
 input,textarea,select {
@@ -391,7 +577,12 @@ input,textarea,select {
  background:#1a1a18;
  color:white;
  border:1px solid #45453d;
- border-radius:5px;
+ border-radius:4px;
+ outline:none;
+}
+
+input:focus,textarea:focus,select:focus {
+ border-color:var(--agua);
 }
 
 textarea {
@@ -401,14 +592,14 @@ textarea {
 
 .radio-row {
  display:flex;
- gap:15px;
+ gap:18px;
  flex-wrap:wrap;
 }
 
 .radio-row label {
  display:flex;
  align-items:center;
- gap:6px;
+ gap:7px;
 }
 
 .radio-row input { width:auto; }
@@ -421,14 +612,15 @@ textarea {
  border-radius:4px;
  background:var(--agua);
  color:#000;
- font-size:16px;
- font-weight:800;
+ font-size:13px;
+ font-weight:900;
+ text-transform:uppercase;
 }
 
 .legal {
- font-size:12px;
+ font-size:11px;
  color:var(--muted);
- line-height:1.5;
+ line-height:1.6;
 }
 
 /* POLÍTICAS E TERMOS */
@@ -449,26 +641,45 @@ textarea {
 
 .legal-content p { color:#D1CBBE; }
 
-.legal-content ul {
- padding-left:20px;
- color:#D1CBBE;
+/* ACESSIBILIDADE */
+
+button:focus-visible,a:focus-visible {
+ outline:2px solid var(--sol);
+ outline-offset:3px;
 }
 
-/* CELULAR */
+@media(max-width:480px) {
+ .wrap { padding:0 15px; }
 
-@media(max-width:420px) {
- .logo { font-size:56px; }
- .logo span { font-size:49px; }
+ .hero { padding:30px 0 26px; }
+
+ .logo { font-size:61px; }
+ .logo span { font-size:55px; }
+
+ .slogan { font-size:24px; }
+
+ .menu-intro h1 { font-size:34px; }
+
  h2 { font-size:34px; }
- .bottom { align-items:center; }
- .add { padding:10px 12px; font-size:13px; }
- .product { padding:12px; }
- .price { font-size:25px; }
- .panel { padding:14px; }
+
+ .product { padding:14px; }
+
+ h3 { font-size:23px; }
+
+ .price { font-size:27px; }
+
+ .add {
+  min-width:112px;
+  padding:10px;
+  font-size:11px;
+ }
+
+ .panel { padding:15px; }
 }
 
 @media(prefers-reduced-motion:reduce) {
  html { scroll-behavior:auto; }
+ * { transition:none !important; }
 }
 </style>
 </head>
@@ -483,15 +694,30 @@ textarea {
 
 <header class="hero">
  <div class="wrap">
+
+  <div class="brand-label">Sabor com identidade</div>
+
   <div class="logo">
    <svg class="shell" viewBox="0 0 64 44" aria-hidden="true">
     <use href="#shell"></use>
    </svg>
    Tuga's <span>Beach</span>
   </div>
+
   <div class="sub">Pastéis &amp; Gelados</div>
+
   <p class="slogan">Um casco de sabor<br>em cada mordida</p>
-  <p class="intro">Escolha seus pastéis, monte seu pedido e envie pelo WhatsApp.</p>
+
+  <p class="intro">
+   Escolha seus favoritos, monte seu pedido
+   e receba atendimento direto pelo WhatsApp.
+  </p>
+
+  <div class="hero-bottom">
+   <span class="hero-tag">Cardápio digital</span>
+   <span class="hero-tag">Peça pelo WhatsApp</span>
+  </div>
+
  </div>
 </header>
 
@@ -503,37 +729,64 @@ textarea {
 
 <footer>
  <div class="wrap">
-  <h2>Peça pelo WhatsApp</h2>
-  <p>Monte seu carrinho e envie seu pedido em poucos passos.</p>
+
+  <svg class="footer-shell" viewBox="0 0 64 44" aria-hidden="true">
+   <use href="#shell"></use>
+  </svg>
+
+  <h2>Tuga's Beach</h2>
+
+  <p>Seu próximo sabor favorito começa aqui.</p>
+
   <strong>WhatsApp: (13) 98853-3014</strong>
-  <p style="font-size:13px">Preços-base provisórios. Confirme a disponibilidade e a entrega com a loja.</p>
+
+  <a class="footer-contact"
+     href="https://wa.me/5513988533014"
+     target="_blank"
+     rel="noopener">
+   FALAR COM A LOJA
+  </a>
+
+  <p style="font-size:12px;font-weight:600">
+   Preços-base provisórios. Confirme a disponibilidade e a entrega com a loja.
+  </p>
 
   <div class="footer-links">
    <button type="button" data-legal="privacy">Política de Privacidade</button>
    <button type="button" data-legal="terms">Termos e Condições</button>
   </div>
 
-  <p style="font-size:12px;font-weight:400;margin-top:20px">
+  <p style="font-size:11px;font-weight:400;margin-top:22px">
    Tuga's Beach. Todos os direitos reservados.
   </p>
+
  </div>
 </footer>
 
+<!-- CARRINHO FIXO -->
+
 <div class="cartbar" id="cartbar" hidden>
- <div>
+ <div class="cart-info">
   <span id="count">0 itens</span>
   <strong id="barTotal">R$ 0,00</strong>
  </div>
- <button class="checkout" id="openCart" type="button">Ver carrinho</button>
+
+ <button class="checkout" id="openCart" type="button">
+  Ver carrinho
+ </button>
 </div>
 
-<!-- CARRINHO -->
+<!-- MODAL DO CARRINHO -->
 
-<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+<div class="modal" id="modal" role="dialog"
+ aria-modal="true" aria-labelledby="cartTitle">
+
  <div class="panel">
+
   <div class="panel-head">
    <h2 id="cartTitle">Seu pedido</h2>
-   <button class="close" id="closeCart" type="button" aria-label="Fechar">×</button>
+   <button class="close" id="closeCart" type="button"
+    aria-label="Fechar">×</button>
   </div>
 
   <div id="cartItems"></div>
@@ -544,24 +797,37 @@ textarea {
   </div>
 
   <form id="orderForm">
+
    <label for="customer">Seu nome *</label>
-   <input id="customer" required maxlength="80" autocomplete="name" placeholder="Como podemos te chamar?">
+   <input id="customer" required maxlength="80"
+    autocomplete="name" placeholder="Como podemos te chamar?">
 
    <label for="phone">Telefone para contato *</label>
-   <input id="phone" type="tel" required maxlength="25" autocomplete="tel" placeholder="DDD + telefone">
+   <input id="phone" type="tel" required maxlength="25"
+    autocomplete="tel" placeholder="DDD + telefone">
 
    <label>Como vai receber?</label>
+
    <div class="radio-row">
-    <label><input type="radio" name="delivery" value="Entrega" checked> Entrega</label>
-    <label><input type="radio" name="delivery" value="Retirada"> Retirada</label>
+    <label>
+     <input type="radio" name="delivery" value="Entrega" checked>
+     Entrega
+    </label>
+
+    <label>
+     <input type="radio" name="delivery" value="Retirada">
+     Retirada
+    </label>
    </div>
 
    <div id="addressBox">
     <label for="address">Endereço de entrega *</label>
-    <textarea id="address" required maxlength="250" placeholder="Rua, número, bairro e referência"></textarea>
+    <textarea id="address" required maxlength="250"
+     placeholder="Rua, número, bairro e referência"></textarea>
    </div>
 
    <label for="payment">Forma de pagamento</label>
+
    <select id="payment">
     <option>Pix (confirmar com a loja)</option>
     <option>Dinheiro na entrega/retirada</option>
@@ -570,90 +836,165 @@ textarea {
    </select>
 
    <label for="notes">Observações (opcional)</label>
-   <textarea id="notes" maxlength="300" placeholder="Alguma observação sobre o pedido?"></textarea>
 
-   <button class="send" type="submit">Enviar pedido pelo WhatsApp</button>
+   <textarea id="notes" maxlength="300"
+    placeholder="Alguma observação sobre o pedido?"></textarea>
+
+   <button class="send" type="submit">
+    Enviar pedido pelo WhatsApp
+   </button>
 
    <p class="legal">
     O pedido será enviado para confirmação no WhatsApp.
-    Este site ainda não processa pagamentos nem registra pedidos no banco de dados.
+    Este site ainda não processa pagamentos nem registra
+    pedidos no banco de dados.
    </p>
+
   </form>
  </div>
 </div>
 
 <!-- POLÍTICA DE PRIVACIDADE -->
 
-<div class="modal legal-modal" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
+<div class="modal legal-modal" id="privacyModal"
+ role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
+
  <div class="panel">
+
   <div class="panel-head">
    <h2 id="privacyTitle">Privacidade</h2>
-   <button class="close" type="button" data-close-legal aria-label="Fechar">×</button>
+   <button class="close" type="button" data-close-legal
+    aria-label="Fechar">×</button>
   </div>
 
   <div class="legal-content">
+
    <h3>Política de Privacidade</h3>
-   <p>A Tuga's Beach respeita a privacidade dos visitantes e busca tratar as informações fornecidas com transparência.</p>
+
+   <p>
+    A Tuga's Beach respeita a privacidade dos visitantes
+    e busca tratar as informações fornecidas com transparência.
+   </p>
 
    <h3>1. Informações fornecidas</h3>
-   <p>Ao montar um pedido, o visitante pode informar nome, telefone, endereço de entrega e observações relacionadas ao pedido.</p>
+   <p>
+    Ao montar um pedido, o visitante pode informar nome,
+    telefone, endereço de entrega e observações relacionadas ao pedido.
+   </p>
 
    <h3>2. Finalidade das informações</h3>
-   <p>Essas informações são utilizadas para compor a mensagem do pedido e permitir que o cliente entre em contato com a Tuga's Beach pelo WhatsApp.</p>
+   <p>
+    Essas informações são utilizadas para compor a mensagem
+    do pedido e permitir que o cliente entre em contato
+    com a Tuga's Beach pelo WhatsApp.
+   </p>
 
    <h3>3. Envio pelo WhatsApp</h3>
-   <p>Ao clicar em enviar pedido, o site abre o WhatsApp com os dados preenchidos. O envio depende da confirmação do próprio cliente no aplicativo.</p>
+   <p>
+    Ao clicar em enviar pedido, o site abre o WhatsApp
+    com os dados preenchidos. O envio depende da confirmação
+    do próprio cliente no aplicativo.
+   </p>
 
    <h3>4. Armazenamento</h3>
-   <p>Na versão atual, este site não possui banco de dados próprio para registrar os pedidos enviados pelo formulário. As informações inseridas são utilizadas para montar a mensagem direcionada ao WhatsApp.</p>
+   <p>
+    Na versão atual, este site não possui banco de dados próprio
+    para registrar os pedidos enviados pelo formulário.
+    As informações inseridas são utilizadas para montar
+    a mensagem direcionada ao WhatsApp.
+   </p>
 
    <h3>5. Serviços externos</h3>
-   <p>O WhatsApp e os serviços de hospedagem e fontes utilizados pelo site possuem suas próprias políticas de privacidade. Recomendamos que o visitante consulte essas políticas.</p>
+   <p>
+    O WhatsApp e os serviços de hospedagem e fontes utilizados
+    pelo site possuem suas próprias políticas de privacidade.
+   </p>
 
    <h3>6. Segurança</h3>
-   <p>O visitante deve evitar inserir informações pessoais desnecessárias no campo de observações.</p>
+   <p>
+    O visitante deve evitar inserir informações pessoais
+    desnecessárias no campo de observações.
+   </p>
 
    <h3>7. Contato</h3>
-   <p>Para dúvidas relacionadas à privacidade ou aos pedidos, entre em contato pelo WhatsApp: <strong>(13) 98853-3014</strong>.</p>
+   <p>
+    Para dúvidas relacionadas à privacidade ou aos pedidos,
+    entre em contato pelo WhatsApp: <strong>(13) 98853-3014</strong>.
+   </p>
 
-   <p>Esta política descreve o funcionamento da versão atual do site e deverá ser atualizada caso sejam adicionados novos serviços de armazenamento ou processamento de dados.</p>
   </div>
  </div>
 </div>
 
 <!-- TERMOS E CONDIÇÕES -->
 
-<div class="modal legal-modal" id="termsModal" role="dialog" aria-modal="true" aria-labelledby="termsTitle">
+<div class="modal legal-modal" id="termsModal"
+ role="dialog" aria-modal="true" aria-labelledby="termsTitle">
+
  <div class="panel">
+
   <div class="panel-head">
    <h2 id="termsTitle">Termos e Condições</h2>
-   <button class="close" type="button" data-close-legal aria-label="Fechar">×</button>
+   <button class="close" type="button" data-close-legal
+    aria-label="Fechar">×</button>
   </div>
 
   <div class="legal-content">
+
    <h3>Termos e Condições de Uso</h3>
-   <p>Ao utilizar o cardápio digital da Tuga's Beach, o visitante declara estar ciente das condições descritas abaixo.</p>
+
+   <p>
+    Ao utilizar o cardápio digital da Tuga's Beach,
+    o visitante declara estar ciente das condições descritas abaixo.
+   </p>
 
    <h3>1. Cardápio e preços</h3>
-   <p>Os produtos e preços apresentados no site são referências para a montagem do pedido. A disponibilidade e os valores deverão ser confirmados diretamente com a loja.</p>
+   <p>
+    Os produtos e preços apresentados no site são referências
+    para a montagem do pedido. A disponibilidade e os valores
+    deverão ser confirmados diretamente com a loja.
+   </p>
 
    <h3>2. Envio do pedido</h3>
-   <p>A inclusão de produtos no carrinho e o preenchimento do formulário não representam confirmação automática do pedido. O pedido somente será considerado confirmado após o contato e a confirmação da loja.</p>
+   <p>
+    A inclusão de produtos no carrinho e o preenchimento
+    do formulário não representam confirmação automática
+    do pedido. O pedido somente será considerado confirmado
+    após o contato e a confirmação da loja.
+   </p>
 
    <h3>3. Entrega e retirada</h3>
-   <p>A disponibilidade da entrega, a região atendida, a taxa de entrega e o prazo deverão ser confirmados diretamente com a Tuga's Beach.</p>
+   <p>
+    A disponibilidade da entrega, a região atendida,
+    a taxa de entrega e o prazo deverão ser confirmados
+    diretamente com a Tuga's Beach.
+   </p>
 
    <h3>4. Pagamento</h3>
-   <p>As formas de pagamento apresentadas no formulário dependem de confirmação com a loja. Este site não realiza cobrança, transação financeira ou processamento de pagamentos.</p>
+   <p>
+    As formas de pagamento apresentadas no formulário
+    dependem de confirmação com a loja. Este site não realiza
+    cobrança, transação financeira ou processamento de pagamentos.
+   </p>
 
    <h3>5. Informações do pedido</h3>
-   <p>O cliente é responsável por conferir os produtos, quantidades, dados de contato e endereço antes de enviar a mensagem.</p>
+   <p>
+    O cliente é responsável por conferir os produtos,
+    quantidades, dados de contato e endereço antes de enviar a mensagem.
+   </p>
 
    <h3>6. Alterações</h3>
-   <p>O cardápio, os produtos, os preços e as condições de atendimento poderão ser atualizados pela loja.</p>
+   <p>
+    O cardápio, os produtos, os preços e as condições
+    de atendimento poderão ser atualizados pela loja.
+   </p>
 
    <h3>7. Contato</h3>
-   <p>Em caso de dúvidas, entre em contato pelo WhatsApp: <strong>(13) 98853-3014</strong>.</p>
+   <p>
+    Em caso de dúvidas, entre em contato pelo WhatsApp:
+    <strong>(13) 98853-3014</strong>.
+   </p>
+
   </div>
  </div>
 </div>
@@ -661,7 +1002,11 @@ textarea {
 <script>
 "use strict";
 
+/* CONFIGURAÇÕES */
+
 const WHATSAPP = "5513988533014";
+
+/* CARDÁPIO */
 
 const MENU = [
  {
@@ -708,7 +1053,7 @@ const MENU = [
 ];
 
 const money = value =>
- value.toLocaleString("pt-BR", {
+ value.toLocaleString("pt-BR",{
   style:"currency",
   currency:"BRL"
  });
@@ -725,20 +1070,28 @@ const shellIcon = `
  </svg>
 `;
 
-/* CATEGORIAS */
+/* NAVEGAÇÃO */
 
 categoriesElement.innerHTML = MENU.map((category,index) => `
  <li>
   <a class="${index === 0 ? "active" : ""}" href="#${category.id}">
    ${category.title}
+   <span class="nav-count">${category.items.length}</span>
   </a>
  </li>
 `).join("");
 
-/* CARDÁPIO */
+/* INTRODUÇÃO E PRODUTOS */
 
-menuElement.innerHTML = MENU.map(category => `
+menuElement.innerHTML = `
+ <div class="menu-intro">
+  <p class="menu-eyebrow">Escolha o seu sabor</p>
+  <h1>Nosso cardápio</h1>
+  <p>Feito para você escolher, combinar e pedir.</p>
+ </div>
+` + MENU.map(category => `
  <section id="${category.id}">
+
   <div class="heading">
    ${shellIcon}
    <h2>${category.title}</h2>
@@ -748,29 +1101,43 @@ menuElement.innerHTML = MENU.map(category => `
 
   ${category.items.map(item => `
    <article class="product">
-    <h3>${item[0]}</h3>
-    <p class="desc">${item[1]}</p>
+
+    <div class="product-info">
+     <div class="product-top">
+      <h3>${item[0]}</h3>
+     </div>
+
+     <p class="desc">${item[1]}</p>
+    </div>
+
     <div class="bottom">
      <span class="price">${money(item[2])}</span>
+
      <button class="add" type="button" data-add="${item[0]}">
-      + Adicionar
+      <span class="add-symbol">+</span>
+      Adicionar
      </button>
     </div>
+
    </article>
   `).join("")}
+
  </section>
 `).join("");
 
-/* PRODUTOS */
+/* BUSCAR PRODUTO */
 
 function getProduct(name) {
  return products.find(product => product[0] === name);
 }
 
-/* ATUALIZAÇÃO DO CARRINHO */
+/* ATUALIZAR CARRINHO */
 
 function renderCart() {
- const entries = Object.entries(cart).filter(([name,quantity]) => quantity > 0);
+
+ const entries = Object.entries(cart).filter(
+  ([name,quantity]) => quantity > 0
+ );
 
  const count = entries.reduce(
   (sum,[name,quantity]) => sum + quantity,
@@ -778,7 +1145,8 @@ function renderCart() {
  );
 
  const total = entries.reduce(
-  (sum,[name,quantity]) => sum + getProduct(name)[2] * quantity,
+  (sum,[name,quantity]) =>
+   sum + getProduct(name)[2] * quantity,
   0
  );
 
@@ -791,29 +1159,51 @@ function renderCart() {
  document.getElementById("total").textContent = money(total);
 
  document.getElementById("cartItems").innerHTML = entries.length
-  ? entries.map(([name,quantity]) => {
-     const product = getProduct(name);
 
-     return `
-      <div class="cartline">
-       <div>
-        <strong>${name}</strong>
-        <small>${money(product[2])} cada · ${money(product[2] * quantity)}</small>
-       </div>
+ ? entries.map(([name,quantity]) => {
 
-       <div class="qty">
-        <button type="button" data-minus="${name}" aria-label="Diminuir ${name}">−</button>
-        <strong>${quantity}</strong>
-        <button type="button" data-plus="${name}" aria-label="Aumentar ${name}">+</button>
-       </div>
+    const product = getProduct(name);
+
+    return `
+     <div class="cartline">
+
+      <div>
+       <strong>${name}</strong>
+       <small>
+        ${money(product[2])} cada ·
+        ${money(product[2] * quantity)}
+       </small>
       </div>
-     `;
-    }).join("")
-  : "<p>Seu carrinho está vazio.</p>";
+
+      <div class="qty">
+
+       <button type="button"
+        data-minus="${name}"
+        aria-label="Diminuir ${name}">
+        −
+       </button>
+
+       <strong>${quantity}</strong>
+
+       <button type="button"
+        data-plus="${name}"
+        aria-label="Aumentar ${name}">
+        +
+       </button>
+
+      </div>
+     </div>
+    `;
+   }).join("")
+
+ : "<p>Seu carrinho está vazio.</p>";
 
  document.querySelectorAll("[data-minus]").forEach(button => {
+
   button.onclick = () => {
+
    const name = button.dataset.minus;
+
    cart[name]--;
 
    if (cart[name] <= 0) {
@@ -825,9 +1215,13 @@ function renderCart() {
  });
 
  document.querySelectorAll("[data-plus]").forEach(button => {
+
   button.onclick = () => {
+
    const name = button.dataset.plus;
+
    cart[name]++;
+
    renderCart();
   };
  });
@@ -836,23 +1230,27 @@ function renderCart() {
 /* ADICIONAR PRODUTOS */
 
 document.querySelectorAll("[data-add]").forEach(button => {
- button.addEventListener("click", () => {
+
+ button.addEventListener("click",() => {
+
   const name = button.dataset.add;
 
   cart[name] = (cart[name] || 0) + 1;
 
   renderCart();
 
-  const originalText = button.textContent;
-  button.textContent = "Adicionado";
+  const originalText = button.innerHTML;
+
+  button.innerHTML = "Adicionado";
 
   setTimeout(() => {
-   button.textContent = originalText;
+   button.innerHTML = originalText;
   },800);
+
  });
 });
 
-/* ABRIR E FECHAR CARRINHO */
+/* MODAIS */
 
 const modal = document.getElementById("modal");
 
@@ -862,6 +1260,7 @@ function openModal(element) {
 }
 
 function closeModal(element) {
+
  element.classList.remove("open");
 
  if (!document.querySelector(".modal.open")) {
@@ -877,7 +1276,8 @@ document.getElementById("closeCart").onclick = () => {
  closeModal(modal);
 };
 
-modal.addEventListener("click", event => {
+modal.addEventListener("click",event => {
+
  if (event.target === modal) {
   closeModal(modal);
  }
@@ -886,18 +1286,22 @@ modal.addEventListener("click", event => {
 /* ENTREGA OU RETIRADA */
 
 document.querySelectorAll('input[name="delivery"]').forEach(input => {
- input.addEventListener("change", () => {
+
+ input.addEventListener("change",() => {
+
   const isDelivery =
    document.querySelector('input[name="delivery"]:checked').value === "Entrega";
 
   document.getElementById("addressBox").hidden = !isDelivery;
+
   document.getElementById("address").required = isDelivery;
  });
 });
 
-/* ENVIO DO PEDIDO */
+/* ENVIAR PEDIDO */
 
-document.getElementById("orderForm").addEventListener("submit", event => {
+document.getElementById("orderForm").addEventListener("submit",event => {
+
  event.preventDefault();
 
  const entries = Object.entries(cart).filter(
@@ -925,12 +1329,15 @@ document.getElementById("orderForm").addEventListener("submit", event => {
  }
 
  const total = entries.reduce(
-  (sum,[name,quantity]) => sum + getProduct(name)[2] * quantity,
+  (sum,[name,quantity]) =>
+   sum + getProduct(name)[2] * quantity,
   0
  );
 
  const lines = entries.map(([name,quantity]) => {
+
   const product = getProduct(name);
+
   return `${quantity}x ${name} - ${money(product[2] * quantity)}`;
  });
 
@@ -964,7 +1371,9 @@ const privacyModal = document.getElementById("privacyModal");
 const termsModal = document.getElementById("termsModal");
 
 document.querySelectorAll("[data-legal]").forEach(button => {
- button.addEventListener("click", () => {
+
+ button.addEventListener("click",() => {
+
   const type = button.dataset.legal;
 
   if (type === "privacy") {
@@ -974,31 +1383,39 @@ document.querySelectorAll("[data-legal]").forEach(button => {
   if (type === "terms") {
    openModal(termsModal);
   }
-});
 
-});
-
-document.querySelectorAll("[data-close-legal]").forEach(button => {
- button.addEventListener("click", () => {
-  closeModal(button.closest(".modal"));
  });
 });
 
+document.querySelectorAll("[data-close-legal]").forEach(button => {
+
+ button.addEventListener("click",() => {
+  closeModal(button.closest(".modal"));
+ });
+
+});
+
 [privacyModal,termsModal].forEach(element => {
- element.addEventListener("click", event => {
+
+ element.addEventListener("click",event => {
+
   if (event.target === element) {
    closeModal(element);
   }
+
  });
 });
 
 /* FECHAR COM ESC */
 
-document.addEventListener("keydown", event => {
+document.addEventListener("keydown",event => {
+
  if (event.key === "Escape") {
+
   document.querySelectorAll(".modal.open").forEach(element => {
    closeModal(element);
   });
+
  }
 });
 
@@ -1007,17 +1424,26 @@ document.addEventListener("keydown", event => {
 const navLinks = [...document.querySelectorAll("nav a")];
 
 if ("IntersectionObserver" in window) {
+
  const observer = new IntersectionObserver(entries => {
+
   entries.forEach(entry => {
+
    if (entry.isIntersecting) {
+
     navLinks.forEach(link => {
+
      link.classList.toggle(
       "active",
       link.getAttribute("href") === "#" + entry.target.id
      );
+
     });
+
    }
+
   });
+
  },{
   rootMargin:"-25% 0px -65% 0px"
  });
@@ -1027,7 +1453,10 @@ if ("IntersectionObserver" in window) {
  });
 }
 
+/* INICIALIZAÇÃO */
+
 renderCart();
+
 </script>
 
 </body>
