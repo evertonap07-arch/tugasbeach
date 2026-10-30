@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -5,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0B0B0B">
 <meta name="description" content="Tuga's Beach: pastéis e gelados. Escolha seus favoritos e peça pelo WhatsApp.">
-<title>Tuga's Beach | Pastéis & Gelados</title>
+<title>Tuga's Beach | Pastéis &amp; Gelados</title>
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 44'%3E%3Cpath d='M4 40C4 18 16 5 32 5s28 13 28 35zM32 5v35M4 40h56M18 12l6 14h16l6-14M24 26l-6 14M40 26l6 14M24 26h16' fill='none' stroke='%2300A896' stroke-width='3'/%3E%3C/svg%3E">
 
@@ -194,9 +195,7 @@ nav a.active {
  color:#000;
 }
 
-nav a:hover {
- border-color:var(--agua);
-}
+nav a:hover { border-color:var(--agua); }
 
 .nav-count {
  font:800 10px var(--texto-fonte);
@@ -205,13 +204,9 @@ nav a:hover {
 
 /* CONTEÚDO */
 
-main {
- padding-bottom:35px;
-}
+main { padding-bottom:35px; }
 
-.menu-intro {
- padding:28px 0 7px;
-}
+.menu-intro { padding:28px 0 7px; }
 
 .menu-eyebrow {
  color:var(--sol);
@@ -288,9 +283,7 @@ h2 {
  transform:translateY(-2px);
 }
 
-.product-info {
- flex:1;
-}
+.product-info { flex:1; }
 
 .product-top {
  display:flex;
@@ -343,13 +336,8 @@ h3 {
  transition:.2s;
 }
 
-.add:hover {
- background:#08c5b2;
-}
-
-.add:active {
- transform:scale(.97);
-}
+.add:hover { background:#08c5b2; }
+.add:active { transform:scale(.97); }
 
 .add-symbol {
  font-size:19px;
@@ -421,9 +409,7 @@ footer {
  margin-bottom:10px;
 }
 
-footer h2 {
- font-size:36px;
-}
+footer h2 { font-size:36px; }
 
 footer p {
  font-size:14px;
@@ -503,9 +489,7 @@ footer strong {
  margin-bottom:12px;
 }
 
-.panel-head h2 {
- font-size:32px;
-}
+.panel-head h2 { font-size:32px; }
 
 .close {
  background:#222;
@@ -526,9 +510,7 @@ footer strong {
  border-bottom:1px solid var(--linha);
 }
 
-.cartline strong {
- font-size:14px;
-}
+.cartline strong { font-size:14px; }
 
 .cartline small {
  display:block;
@@ -650,30 +632,20 @@ button:focus-visible,a:focus-visible {
 
 @media(max-width:480px) {
  .wrap { padding:0 15px; }
-
  .hero { padding:30px 0 26px; }
-
  .logo { font-size:61px; }
  .logo span { font-size:55px; }
-
  .slogan { font-size:24px; }
-
  .menu-intro h1 { font-size:34px; }
-
  h2 { font-size:34px; }
-
  .product { padding:14px; }
-
  h3 { font-size:23px; }
-
  .price { font-size:27px; }
-
  .add {
   min-width:112px;
   padding:10px;
   font-size:11px;
  }
-
  .panel { padding:15px; }
 }
 
@@ -694,7 +666,6 @@ button:focus-visible,a:focus-visible {
 
 <header class="hero">
  <div class="wrap">
-
   <div class="brand-label">Sabor com identidade</div>
 
   <div class="logo">
@@ -717,7 +688,6 @@ button:focus-visible,a:focus-visible {
    <span class="hero-tag">Cardápio digital</span>
    <span class="hero-tag">Peça pelo WhatsApp</span>
   </div>
-
  </div>
 </header>
 
@@ -729,13 +699,11 @@ button:focus-visible,a:focus-visible {
 
 <footer>
  <div class="wrap">
-
   <svg class="footer-shell" viewBox="0 0 64 44" aria-hidden="true">
    <use href="#shell"></use>
   </svg>
 
   <h2>Tuga's Beach</h2>
-
   <p>Seu próximo sabor favorito começa aqui.</p>
 
   <strong>WhatsApp: (13) 98853-3014</strong>
@@ -748,7 +716,7 @@ button:focus-visible,a:focus-visible {
   </a>
 
   <p style="font-size:12px;font-weight:600">
-   Preços-base provisórios. Confirme a disponibilidade e a entrega com a loja.
+   Consulte a disponibilidade e as condições de entrega diretamente com a loja.
   </p>
 
   <div class="footer-links">
@@ -759,7 +727,6 @@ button:focus-visible,a:focus-visible {
   <p style="font-size:11px;font-weight:400;margin-top:22px">
    Tuga's Beach. Todos os direitos reservados.
   </p>
-
  </div>
 </footer>
 
@@ -782,7 +749,6 @@ button:focus-visible,a:focus-visible {
  aria-modal="true" aria-labelledby="cartTitle">
 
  <div class="panel">
-
   <div class="panel-head">
    <h2 id="cartTitle">Seu pedido</h2>
    <button class="close" id="closeCart" type="button"
@@ -797,7 +763,6 @@ button:focus-visible,a:focus-visible {
   </div>
 
   <form id="orderForm">
-
    <label for="customer">Seu nome *</label>
    <input id="customer" required maxlength="80"
     autocomplete="name" placeholder="Como podemos te chamar?">
@@ -836,7 +801,6 @@ button:focus-visible,a:focus-visible {
    </select>
 
    <label for="notes">Observações (opcional)</label>
-
    <textarea id="notes" maxlength="300"
     placeholder="Alguma observação sobre o pedido?"></textarea>
 
@@ -849,7 +813,6 @@ button:focus-visible,a:focus-visible {
     Este site ainda não processa pagamentos nem registra
     pedidos no banco de dados.
    </p>
-
   </form>
  </div>
 </div>
@@ -860,7 +823,6 @@ button:focus-visible,a:focus-visible {
  role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
 
  <div class="panel">
-
   <div class="panel-head">
    <h2 id="privacyTitle">Privacidade</h2>
    <button class="close" type="button" data-close-legal
@@ -868,7 +830,6 @@ button:focus-visible,a:focus-visible {
   </div>
 
   <div class="legal-content">
-
    <h3>Política de Privacidade</h3>
 
    <p>
@@ -921,7 +882,6 @@ button:focus-visible,a:focus-visible {
     Para dúvidas relacionadas à privacidade ou aos pedidos,
     entre em contato pelo WhatsApp: <strong>(13) 98853-3014</strong>.
    </p>
-
   </div>
  </div>
 </div>
@@ -932,7 +892,6 @@ button:focus-visible,a:focus-visible {
  role="dialog" aria-modal="true" aria-labelledby="termsTitle">
 
  <div class="panel">
-
   <div class="panel-head">
    <h2 id="termsTitle">Termos e Condições</h2>
    <button class="close" type="button" data-close-legal
@@ -940,7 +899,6 @@ button:focus-visible,a:focus-visible {
   </div>
 
   <div class="legal-content">
-
    <h3>Termos e Condições de Uso</h3>
 
    <p>
@@ -950,9 +908,9 @@ button:focus-visible,a:focus-visible {
 
    <h3>1. Cardápio e preços</h3>
    <p>
-    Os produtos e preços apresentados no site são referências
-    para a montagem do pedido. A disponibilidade e os valores
-    deverão ser confirmados diretamente com a loja.
+    Os produtos e preços apresentados no site correspondem
+    ao cardápio informado pela loja. A disponibilidade dos
+    produtos deverá ser confirmada diretamente com a loja.
    </p>
 
    <h3>2. Envio do pedido</h3>
@@ -985,8 +943,8 @@ button:focus-visible,a:focus-visible {
 
    <h3>6. Alterações</h3>
    <p>
-    O cardápio, os produtos, os preços e as condições
-    de atendimento poderão ser atualizados pela loja.
+    O cardápio, os produtos e as condições de atendimento
+    poderão ser atualizados pela loja.
    </p>
 
    <h3>7. Contato</h3>
@@ -994,7 +952,6 @@ button:focus-visible,a:focus-visible {
     Em caso de dúvidas, entre em contato pelo WhatsApp:
     <strong>(13) 98853-3014</strong>.
    </p>
-
   </div>
  </div>
 </div>
@@ -1006,58 +963,97 @@ button:focus-visible,a:focus-visible {
 
 const WHATSAPP = "5513988533014";
 
-/* CARDÁPIO */
+/* CARDÁPIO ATUALIZADO */
 
 const MENU = [
-  // SALGADOS TRADICIONAIS - R$ 14
-  { id: 1, name: "Queijo", category: "Salgado Tradicional", price: 14 },
-  { id: 2, name: "Carne", category: "Salgado Tradicional", price: 14 },
-  { id: 3, name: "Pizza", category: "Salgado Tradicional", price: 14 },
-  { id: 4, name: "Frango", category: "Salgado Tradicional", price: 14 },
-  { id: 5, name: "Calabresa", category: "Salgado Tradicional", price: 14 },
-  { id: 6, name: "Bauru", category: "Salgado Tradicional", price: 14 },
-
-  // SALGADOS ESPECIAIS - R$ 17
-  { id: 7, name: "Carne com Queijo", category: "Salgado Especial", price: 17 },
-  { id: 8, name: "Carne com Cheddar", category: "Salgado Especial", price: 17 },
-  { id: 9, name: "Bacon com Queijo", category: "Salgado Especial", price: 17 },
-  { id: 10, name: "Calabresa com Catupiry", category: "Salgado Especial", price: 17 },
-  { id: 11, name: "Calabresa com Queijo", category: "Salgado Especial", price: 17 },
-  { id: 12, name: "Calabresa com Cheddar", category: "Salgado Especial", price: 17 },
-  { id: 13, name: "Frango com Catupiry", category: "Salgado Especial", price: 17 },
-  { id: 14, name: "Frango com Cheddar", category: "Salgado Especial", price: 17 },
-  { id: 15, name: "Frango com Queijo", category: "Salgado Especial", price: 17 },
-  { id: 16, name: "Brócolis com Queijo", category: "Salgado Especial", price: 17 },
-
-  // SALGADOS PREMIUM - R$ 20
-  { id: 17, name: "Costela com Queijo", category: "Salgado Premium", price: 20 },
-  { id: 18, name: "Camarão com Queijo", category: "Salgado Premium", price: 20 },
-  { id: 19, name: "Camarão com Catupiry", category: "Salgado Premium", price: 20 },
-  { id: 20, name: "Carne Seca com Catupiry", category: "Salgado Premium", price: 20 },
-  { id: 21, name: "Carne Seca com Queijo", category: "Salgado Premium", price: 20 },
-
-  // DOCES TRADICIONAIS - R$ 14
-  { id: 22, name: "Chocolate", category: "Doce Tradicional", price: 14 },
-  { id: 23, name: "Banana com Doce de Leite", category: "Doce Tradicional", price: 14 },
-  { id: 24, name: "Romeu e Julieta", category: "Doce Tradicional", price: 14 },
-  { id: 25, name: "Doce de Leite", category: "Doce Tradicional", price: 14 },
-  { id: 26, name: "Banana", category: "Doce Tradicional", price: 14 },
-
-  // DOCES ESPECIAIS - R$ 17
-  { id: 27, name: "Pistache", category: "Doce Especial", price: 17 },
-  { id: 28, name: "Ninho", category: "Doce Especial", price: 17 },
-  { id: 29, name: "Prestígio", category: "Doce Especial", price: 17 },
-
-  // DOCES PREMIUM - R$ 20
-  { id: 30, name: "Nutella", category: "Doce Premium", price: 20 },
-  { id: 31, name: "KitKat", category: "Doce Premium", price: 20 },
-  { id: 32, name: "Ovomaltine", category: "Doce Premium", price: 20 },
-  { id: 33, name: "Negresco", category: "Doce Premium", price: 20 },
-  { id: 34, name: "Nutella com Morango", category: "Doce Premium", price: 20 },
-  { id: 35, name: "Nutella com M&M", category: "Doce Premium", price: 20 },
-  { id: 36, name: "Nutella com Banana", category: "Doce Premium", price: 20 },
-  { id: 37, name: "Ninho com Nutella", category: "Doce Premium", price: 20 }
+ {
+  id:"salgados-tradicionais",
+  title:"Salgados Tradicionais",
+  priceLabel:"R$ 14,00",
+  note:"Os clássicos que todo mundo gosta.",
+  items:[
+   {id:1,name:"Queijo",price:14},
+   {id:2,name:"Carne",price:14},
+   {id:3,name:"Pizza",price:14},
+   {id:4,name:"Frango",price:14},
+   {id:5,name:"Calabresa",price:14},
+   {id:6,name:"Bauru",price:14}
+  ]
+ },
+ {
+  id:"salgados-especiais",
+  title:"Salgados Especiais",
+  priceLabel:"R$ 17,00",
+  note:"Combinações especiais para deixar seu pastel ainda melhor.",
+  items:[
+   {id:7,name:"Carne com Queijo",price:17},
+   {id:8,name:"Carne com Cheddar",price:17},
+   {id:9,name:"Bacon com Queijo",price:17},
+   {id:10,name:"Calabresa com Catupiry",price:17},
+   {id:11,name:"Calabresa com Queijo",price:17},
+   {id:12,name:"Calabresa com Cheddar",price:17},
+   {id:13,name:"Frango com Catupiry",price:17},
+   {id:14,name:"Frango com Cheddar",price:17},
+   {id:15,name:"Frango com Queijo",price:17},
+   {id:16,name:"Brócolis com Queijo",price:17}
+  ]
+ },
+ {
+  id:"salgados-premium",
+  title:"Salgados Premium",
+  priceLabel:"R$ 20,00",
+  note:"Recheios premium para quem procura um sabor especial.",
+  items:[
+   {id:17,name:"Costela com Queijo",price:20},
+   {id:18,name:"Camarão com Queijo",price:20},
+   {id:19,name:"Camarão com Catupiry",price:20},
+   {id:20,name:"Carne Seca com Catupiry",price:20},
+   {id:21,name:"Carne Seca com Queijo",price:20}
+  ]
+ },
+ {
+  id:"doces-tradicionais",
+  title:"Doces Tradicionais",
+  priceLabel:"R$ 14,00",
+  note:"Uma seleção de sabores doces clássicos.",
+  items:[
+   {id:22,name:"Chocolate",price:14},
+   {id:23,name:"Banana com Doce de Leite",price:14},
+   {id:24,name:"Romeu e Julieta",price:14},
+   {id:25,name:"Doce de Leite",price:14},
+   {id:26,name:"Banana",price:14}
+  ]
+ },
+ {
+  id:"doces-especiais",
+  title:"Doces Especiais",
+  priceLabel:"R$ 17,00",
+  note:"Mais cremosidade e combinações especiais.",
+  items:[
+   {id:27,name:"Pistache",price:17},
+   {id:28,name:"Ninho",price:17},
+   {id:29,name:"Prestígio",price:17}
+  ]
+ },
+ {
+  id:"doces-premium",
+  title:"Doces Premium",
+  priceLabel:"R$ 20,00",
+  note:"Sabores premium para fechar com chave de ouro.",
+  items:[
+   {id:30,name:"Nutella",price:20},
+   {id:31,name:"KitKat",price:20},
+   {id:32,name:"Ovomaltine",price:20},
+   {id:33,name:"Negresco",price:20},
+   {id:34,name:"Nutella com Morango",price:20},
+   {id:35,name:"Nutella com M&M",price:20},
+   {id:36,name:"Nutella com Banana",price:20},
+   {id:37,name:"Ninho com Nutella",price:20}
+  ]
+ }
 ];
+
+/* FUNÇÕES BÁSICAS */
 
 const money = value =>
  value.toLocaleString("pt-BR",{
@@ -1094,7 +1090,7 @@ menuElement.innerHTML = `
  <div class="menu-intro">
   <p class="menu-eyebrow">Escolha o seu sabor</p>
   <h1>Nosso cardápio</h1>
-  <p>Feito para você escolher, combinar e pedir.</p>
+  <p>37 opções para você escolher, combinar e pedir.</p>
  </div>
 ` + MENU.map(category => `
  <section id="${category.id}">
@@ -1104,23 +1100,28 @@ menuElement.innerHTML = `
    <h2>${category.title}</h2>
   </div>
 
-  <p class="note">${category.note}</p>
+  <p class="note">
+   ${category.note}
+   <strong style="color:var(--sol);margin-left:5px">
+    ${category.priceLabel}
+   </strong>
+  </p>
 
   ${category.items.map(item => `
    <article class="product">
 
     <div class="product-info">
      <div class="product-top">
-      <h3>${item[0]}</h3>
+      <h3>${item.name}</h3>
      </div>
 
-     <p class="desc">${item[1]}</p>
+     <p class="desc">${category.title}</p>
     </div>
 
     <div class="bottom">
-     <span class="price">${money(item[2])}</span>
+     <span class="price">${money(item.price)}</span>
 
-     <button class="add" type="button" data-add="${item[0]}">
+     <button class="add" type="button" data-add="${item.id}">
       <span class="add-symbol">+</span>
       Adicionar
      </button>
@@ -1134,8 +1135,8 @@ menuElement.innerHTML = `
 
 /* BUSCAR PRODUTO */
 
-function getProduct(name) {
- return products.find(product => product[0] === name);
+function getProduct(id) {
+ return products.find(product => product.id === Number(id));
 }
 
 /* ATUALIZAR CARRINHO */
@@ -1143,17 +1144,17 @@ function getProduct(name) {
 function renderCart() {
 
  const entries = Object.entries(cart).filter(
-  ([name,quantity]) => quantity > 0
+  ([id,quantity]) => quantity > 0
  );
 
  const count = entries.reduce(
-  (sum,[name,quantity]) => sum + quantity,
+  (sum,[id,quantity]) => sum + quantity,
   0
  );
 
  const total = entries.reduce(
-  (sum,[name,quantity]) =>
-   sum + getProduct(name)[2] * quantity,
+  (sum,[id,quantity]) =>
+   sum + getProduct(id).price * quantity,
   0
  );
 
@@ -1167,37 +1168,34 @@ function renderCart() {
 
  document.getElementById("cartItems").innerHTML = entries.length
 
- ? entries.map(([name,quantity]) => {
+ ? entries.map(([id,quantity]) => {
 
-    const product = getProduct(name);
+    const product = getProduct(id);
 
     return `
      <div class="cartline">
-
       <div>
-       <strong>${name}</strong>
+       <strong>${product.name}</strong>
        <small>
-        ${money(product[2])} cada ·
-        ${money(product[2] * quantity)}
+        ${money(product.price)} cada ·
+        ${money(product.price * quantity)}
        </small>
       </div>
 
       <div class="qty">
-
        <button type="button"
-        data-minus="${name}"
-        aria-label="Diminuir ${name}">
+        data-minus="${id}"
+        aria-label="Diminuir ${product.name}">
         −
        </button>
 
        <strong>${quantity}</strong>
 
        <button type="button"
-        data-plus="${name}"
-        aria-label="Aumentar ${name}">
+        data-plus="${id}"
+        aria-label="Aumentar ${product.name}">
         +
        </button>
-
       </div>
      </div>
     `;
@@ -1206,15 +1204,13 @@ function renderCart() {
  : "<p>Seu carrinho está vazio.</p>";
 
  document.querySelectorAll("[data-minus]").forEach(button => {
-
   button.onclick = () => {
+   const id = button.dataset.minus;
 
-   const name = button.dataset.minus;
+   cart[id]--;
 
-   cart[name]--;
-
-   if (cart[name] <= 0) {
-    delete cart[name];
+   if (cart[id] <= 0) {
+    delete cart[id];
    }
 
    renderCart();
@@ -1222,13 +1218,9 @@ function renderCart() {
  });
 
  document.querySelectorAll("[data-plus]").forEach(button => {
-
   button.onclick = () => {
-
-   const name = button.dataset.plus;
-
-   cart[name]++;
-
+   const id = button.dataset.plus;
+   cart[id]++;
    renderCart();
   };
  });
@@ -1240,14 +1232,13 @@ document.querySelectorAll("[data-add]").forEach(button => {
 
  button.addEventListener("click",() => {
 
-  const name = button.dataset.add;
+  const id = button.dataset.add;
 
-  cart[name] = (cart[name] || 0) + 1;
+  cart[id] = (cart[id] || 0) + 1;
 
   renderCart();
 
   const originalText = button.innerHTML;
-
   button.innerHTML = "Adicionado";
 
   setTimeout(() => {
@@ -1267,7 +1258,6 @@ function openModal(element) {
 }
 
 function closeModal(element) {
-
  element.classList.remove("open");
 
  if (!document.querySelector(".modal.open")) {
@@ -1284,7 +1274,6 @@ document.getElementById("closeCart").onclick = () => {
 };
 
 modal.addEventListener("click",event => {
-
  if (event.target === modal) {
   closeModal(modal);
  }
@@ -1300,8 +1289,8 @@ document.querySelectorAll('input[name="delivery"]').forEach(input => {
    document.querySelector('input[name="delivery"]:checked').value === "Entrega";
 
   document.getElementById("addressBox").hidden = !isDelivery;
-
   document.getElementById("address").required = isDelivery;
+
  });
 });
 
@@ -1312,7 +1301,7 @@ document.getElementById("orderForm").addEventListener("submit",event => {
  event.preventDefault();
 
  const entries = Object.entries(cart).filter(
-  ([name,quantity]) => quantity > 0
+  ([id,quantity]) => quantity > 0
  );
 
  if (!entries.length) {
@@ -1336,16 +1325,15 @@ document.getElementById("orderForm").addEventListener("submit",event => {
  }
 
  const total = entries.reduce(
-  (sum,[name,quantity]) =>
-   sum + getProduct(name)[2] * quantity,
+  (sum,[id,quantity]) =>
+   sum + getProduct(id).price * quantity,
   0
  );
 
- const lines = entries.map(([name,quantity]) => {
+ const lines = entries.map(([id,quantity]) => {
+  const product = getProduct(id);
 
-  const product = getProduct(name);
-
-  return `${quantity}x ${name} - ${money(product[2] * quantity)}`;
+  return `${quantity}x ${product.name} - ${money(product.price * quantity)}`;
  });
 
  const message = [
@@ -1383,13 +1371,8 @@ document.querySelectorAll("[data-legal]").forEach(button => {
 
   const type = button.dataset.legal;
 
-  if (type === "privacy") {
-   openModal(privacyModal);
-  }
-
-  if (type === "terms") {
-   openModal(termsModal);
-  }
+  if (type === "privacy") openModal(privacyModal);
+  if (type === "terms") openModal(termsModal);
 
  });
 });
@@ -1418,12 +1401,11 @@ document.querySelectorAll("[data-close-legal]").forEach(button => {
 document.addEventListener("keydown",event => {
 
  if (event.key === "Escape") {
-
   document.querySelectorAll(".modal.open").forEach(element => {
    closeModal(element);
   });
-
  }
+
 });
 
 /* DESTAQUE DA CATEGORIA ATIVA */
@@ -1439,12 +1421,10 @@ if ("IntersectionObserver" in window) {
    if (entry.isIntersecting) {
 
     navLinks.forEach(link => {
-
      link.classList.toggle(
       "active",
       link.getAttribute("href") === "#" + entry.target.id
      );
-
     });
 
    }
