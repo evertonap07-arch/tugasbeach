@@ -1,301 +1,1647 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0B0B0B">
-<title>Tuga's Beach | Cardápio</title>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700;1,800&family=Nunito+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+<meta name="description" content="Tuga's Beach: pastéis artesanais e bebidas. Monte seu pedido pelo WhatsApp.">
+<title>Tuga's Beach | Pastéis & Gelados</title>
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 44'%3E%3Cpath d='M4 40C4 18 16 5 32 5s28 13 28 35zM32 5v35M4 40h56M18 12l6 14h16l6-14M24 26l-6 14M40 26l6 14M24 26h16' fill='none' stroke='%2300A896' stroke-width='3'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700;1,800&family=Nunito+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
 <style>
 :root {
- --agua:#00A896; --sol:#FFB347; --areia:#E6D7B7;
- --preto:#0B0B0B; --texto:#F7F5EB;
- --card:#161614; --linha:#30302B; --muted:#B9B29D;
+ --agua:#00A896;
+ --sol:#FFB347;
+ --areia:#E6D7B7;
+ --preto:#0B0B0B;
+ --texto:#F7F5EB;
+ --card:#161614;
+ --linha:#30302B;
+ --muted:#B9B29D;
  --titulo:'Barlow Condensed',Impact,sans-serif;
- --texto-fonte:'Nunito Sans',Arial,sans-serif;
+ --fonte:'Nunito Sans',Arial,sans-serif;
 }
-* {box-sizing:border-box}
-html {scroll-behavior:smooth;scroll-padding-top:85px}
-body {margin:0;background:var(--preto);color:var(--texto);font-family:var(--texto-fonte)}
-.wrap {max-width:650px;margin:auto;padding:0 18px}
-.hero {text-align:center;padding:30px 0;background:radial-gradient(ellipse at top,#00a89620,transparent 70%);border-bottom:1px solid var(--linha)}
-.logo {font:italic 800 65px/.85 var(--titulo);text-transform:uppercase;transform:rotate(-3deg);margin:20px 0}
-.logo span {display:block;color:var(--agua);font-size:57px;margin-left:25px}
-.shell {width:75px;height:50px;fill:none;stroke:var(--agua);stroke-width:2.5}
-.sub {color:var(--areia);font:italic 700 17px var(--titulo);letter-spacing:4px;text-transform:uppercase}
-.slogan {font:italic 700 25px/1.1 var(--titulo);color:var(--agua)}
-.intro {font-size:14px;color:var(--muted)}
-nav {position:sticky;top:0;z-index:5;background:#0b0b0bf5;border-bottom:1px solid var(--linha)}
-nav ul {display:flex;gap:8px;overflow-x:auto;list-style:none;margin:auto;padding:10px 16px;max-width:650px}
-nav a {display:block;white-space:nowrap;padding:8px 14px;border:1px solid var(--linha);border-radius:30px;color:var(--texto);text-decoration:none;font:italic 700 18px var(--titulo);text-transform:uppercase}
-nav a.active {background:var(--agua);color:#000}
-section {padding:28px 0 4px;scroll-margin-top:75px}
-h2 {font:italic 800 39px/1 var(--titulo);text-transform:uppercase;margin:0}
-.heading {display:flex;align-items:center;gap:10px;margin-bottom:7px}
-.heading svg {width:30px;stroke:var(--sol);fill:none;stroke-width:2}
-.note {font-size:14px;color:var(--muted);margin:0 0 14px}
-.product {background:var(--card);border:1px solid var(--linha);border-radius:14px;padding:14px;margin-bottom:11px}
-h3 {font:italic 800 25px/1.05 var(--titulo);margin:0 0 5px}
-.desc {font-size:14px;color:var(--muted);margin:0}
-.bottom {display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px}
-.price {font:italic 800 27px var(--titulo);color:var(--sol);white-space:nowrap}
-button {cursor:pointer}
-.add {border:0;border-radius:30px;background:var(--agua);color:#000;font-weight:800;padding:10px 15px}
-.cartbar {position:fixed;bottom:12px;left:50%;transform:translateX(-50%);z-index:8;width:calc(100% - 24px);max-width:580px;background:var(--sol);color:#000;padding:12px 15px;border-radius:15px;display:flex;align-items:center;justify-content:space-between;gap:10px;box-shadow:0 5px 20px #0009}
-.cartbar[hidden] {display:none}
-.cartbar strong {display:block;font:italic 800 24px var(--titulo)}
-.checkout {background:#000;color:white;border:0;border-radius:30px;padding:12px;font-weight:800}
-footer {background:var(--areia);color:#111;text-align:center;margin-top:35px;padding:30px 0 100px}
-footer h2 {font-size:34px}
-footer p {font-weight:700}
-.modal {display:none;position:fixed;inset:0;z-index:20;background:#000c;align-items:center;justify-content:center;padding:12px}
-.modal.open {display:flex}
-.panel {background:#111;border:1px solid var(--linha);border-radius:18px;width:100%;max-width:540px;max-height:92vh;overflow:auto;padding:18px}
-.panel-head {display:flex;align-items:center;justify-content:space-between}
-.panel-head h2 {font-size:30px}
-.close {background:#222;color:white;border:1px solid #444;border-radius:50%;width:38px;height:38px;font-size:22px}
-.cartline {display:grid;grid-template-columns:1fr auto;gap:8px;padding:12px 0;border-bottom:1px solid var(--linha)}
-.cartline small {display:block;color:var(--muted)}
-.qty {display:flex;align-items:center;gap:8px}
-.qty button {width:30px;height:30px;border:0;border-radius:50%;background:var(--agua);font-size:18px;font-weight:800}
-.total {display:flex;justify-content:space-between;padding:16px 0;font-weight:800;font-size:18px}
-label {display:block;font-size:14px;font-weight:700;margin:12px 0 5px}
-input,textarea,select {width:100%;padding:12px;background:#1a1a18;color:white;border:1px solid #45453d;border-radius:10px;font:inherit}
-textarea {min-height:65px}
-.radio-row {display:flex;gap:15px}
-.radio-row label {display:flex;align-items:center;gap:6px}
-.radio-row input {width:auto}
-.send {width:100%;margin-top:17px;padding:15px;border:0;border-radius:12px;background:var(--agua);font-size:16px;font-weight:800}
-.legal {font-size:12px;color:var(--muted)}
-@media(max-width:420px) {
- .logo {font-size:56px}.logo span {font-size:49px}
- h2 {font-size:34px}.bottom {align-items:center}
- .add {padding:10px 12px}
+
+* { box-sizing:border-box; }
+
+html {
+ scroll-behavior:smooth;
+ scroll-padding-top:145px;
+}
+
+body {
+ margin:0;
+ background:var(--preto);
+ color:var(--texto);
+ font-family:var(--fonte);
+}
+
+body.modal-open { overflow:hidden; }
+
+button,input,textarea,select { font:inherit; }
+button { cursor:pointer; }
+
+.wrap {
+ width:100%;
+ max-width:760px;
+ margin:auto;
+ padding:0 20px;
+}
+
+.hero {
+ position:relative;
+ overflow:hidden;
+ text-align:center;
+ padding:36px 0 30px;
+ border-bottom:1px solid var(--linha);
+ background:
+ radial-gradient(ellipse at 50% 0%,#00a89625,transparent 65%),
+ var(--preto);
+}
+
+.hero::after {
+ content:"";
+ position:absolute;
+ bottom:0;
+ left:50%;
+ transform:translateX(-50%);
+ width:90px;
+ height:3px;
+ background:var(--agua);
+}
+
+.brand-label {
+ display:inline-block;
+ color:var(--sol);
+ font-size:11px;
+ font-weight:900;
+ letter-spacing:4px;
+ text-transform:uppercase;
+ margin-bottom:12px;
+}
+
+.logo {
+ font:italic 800 72px/.78 var(--titulo);
+ text-transform:uppercase;
+ margin:12px 0 20px;
+ letter-spacing:-1px;
+}
+
+.logo span {
+ display:block;
+ color:var(--agua);
+ font-size:64px;
+ margin:12px 0 0 35px;
+}
+
+.shell {
+ width:66px;
+ height:46px;
+ fill:none;
+ stroke:var(--agua);
+ stroke-width:2.5;
+ display:block;
+ margin:0 auto 13px;
+}
+
+.sub {
+ color:var(--areia);
+ font:italic 700 17px var(--titulo);
+ letter-spacing:5px;
+ text-transform:uppercase;
+}
+
+.slogan {
+ font:italic 700 27px/1.05 var(--titulo);
+ color:var(--agua);
+ margin:20px 0 9px;
+}
+
+.intro {
+ font-size:14px;
+ color:var(--muted);
+ line-height:1.6;
+ max-width:410px;
+ margin:0 auto;
+}
+
+.hero-bottom {
+ display:flex;
+ justify-content:center;
+ gap:9px;
+ flex-wrap:wrap;
+ margin-top:18px;
+}
+
+.hero-tag {
+ border:1px solid var(--linha);
+ color:var(--areia);
+ padding:7px 12px;
+ border-radius:3px;
+ font-size:11px;
+ font-weight:800;
+ letter-spacing:1px;
+ text-transform:uppercase;
+}
+
+.delivery-apps {
+ display:flex;
+ justify-content:center;
+ gap:10px;
+ margin-top:18px;
+ flex-wrap:wrap;
+}
+
+.app-btn {
+ display:inline-flex;
+ align-items:center;
+ gap:6px;
+ background:var(--card);
+ border:1px solid var(--linha);
+ color:var(--texto);
+ padding:9px 15px;
+ border-radius:20px;
+ font-size:11px;
+ font-weight:900;
+ text-decoration:none;
+ text-transform:uppercase;
+ transition:.2s;
+}
+
+.app-btn:hover { transform:translateY(-2px); }
+.app-btn.ifood { border-color:#EA1D2C; color:#FF5360; }
+.app-btn.app99 { border-color:#FF8000; color:#FF9B33; }
+
+.sticky-container {
+ position:sticky;
+ top:0;
+ z-index:10;
+ background:#0B0B0BF2;
+ border-bottom:1px solid var(--linha);
+ backdrop-filter:blur(12px);
+}
+
+.search-box-wrapper {
+ max-width:760px;
+ margin:auto;
+ padding:10px 20px 0;
+}
+
+.search-input {
+ width:100%;
+ background:var(--card);
+ border:1px solid var(--linha);
+ border-radius:6px;
+ padding:12px 14px;
+ color:var(--texto);
+ font-size:13px;
+ outline:none;
+}
+
+.search-input:focus { border-color:var(--agua); }
+
+nav ul {
+ display:flex;
+ gap:8px;
+ overflow-x:auto;
+ list-style:none;
+ margin:auto;
+ padding:10px 20px;
+ max-width:760px;
+ scrollbar-width:none;
+}
+
+nav ul::-webkit-scrollbar { display:none; }
+
+nav a {
+ display:flex;
+ align-items:center;
+ gap:7px;
+ white-space:nowrap;
+ padding:8px 14px;
+ border:1px solid var(--linha);
+ border-radius:4px;
+ color:var(--texto);
+ text-decoration:none;
+ font:italic 700 16px var(--titulo);
+ text-transform:uppercase;
+ transition:.2s;
+}
+
+nav a.active {
+ background:var(--agua);
+ border-color:var(--agua);
+ color:#000;
+}
+
+nav a:hover { border-color:var(--agua); }
+
+.nav-count {
+ font:800 10px var(--fonte);
+ opacity:.7;
+}
+
+main { padding-bottom:35px; }
+
+.menu-intro { padding:28px 0 7px; }
+
+.menu-eyebrow {
+ color:var(--sol);
+ font-size:11px;
+ font-weight:900;
+ letter-spacing:3px;
+ text-transform:uppercase;
+ margin:0 0 7px;
+}
+
+.menu-intro h1 {
+ font:italic 800 40px/.95 var(--titulo);
+ text-transform:uppercase;
+ margin:0;
+}
+
+.menu-intro p {
+ color:var(--muted);
+ font-size:13px;
+ margin:9px 0 0;
+}
+
+.combo-banner {
+ background:var(--card);
+ border:1px dashed var(--sol);
+ padding:13px 16px;
+ border-radius:8px;
+ margin-top:15px;
+ font-size:13px;
+ color:var(--texto);
+ text-align:center;
+ line-height:1.5;
+}
+
+.combo-banner strong { color:var(--sol); }
+
+section {
+ padding:28px 0 3px;
+ scroll-margin-top:150px;
+}
+
+.heading {
+ display:flex;
+ align-items:center;
+ gap:12px;
+ margin-bottom:7px;
+}
+
+.heading svg {
+ width:32px;
+ height:28px;
+ stroke:var(--sol);
+ fill:none;
+ stroke-width:2;
+ flex-shrink:0;
+}
+
+h2 {
+ font:italic 800 38px/1 var(--titulo);
+ text-transform:uppercase;
+ margin:0;
+}
+
+.note {
+ font-size:13px;
+ color:var(--muted);
+ margin:0 0 16px;
+}
+
+.product {
+ display:flex;
+ flex-direction:column;
+ background:var(--preto);
+ border:1px solid var(--linha);
+ border-radius:7px;
+ padding:16px;
+ margin-bottom:11px;
+ transition:border-color .2s,transform .2s;
+}
+
+.product:hover {
+ border-color:#00A89680;
+ transform:translateY(-2px);
+}
+
+.product-top {
+ display:flex;
+ align-items:flex-start;
+ justify-content:space-between;
+ gap:10px;
+}
+
+h3 {
+ font:italic 800 25px/1.05 var(--titulo);
+ margin:0 0 4px;
+}
+
+.ingredients {
+ font-size:12px;
+ color:var(--areia);
+ font-style:italic;
+ margin:0 0 6px;
+}
+
+.desc {
+ font-size:13px;
+ color:var(--muted);
+ margin:0;
+ line-height:1.55;
+}
+
+.bottom {
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:12px;
+ margin-top:12px;
+ padding-top:10px;
+ border-top:1px solid #ffffff0d;
+}
+
+.price {
+ font:italic 800 29px var(--titulo);
+ color:var(--sol);
+ white-space:nowrap;
+}
+
+.add {
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ gap:7px;
+ min-width:125px;
+ border:1px solid var(--agua);
+ border-radius:4px;
+ background:var(--agua);
+ color:#000;
+ font-size:12px;
+ font-weight:900;
+ padding:11px 14px;
+ transition:.2s;
+}
+
+.add:hover { background:#08c5b2; }
+.add:active { transform:scale(.97); }
+
+.add-symbol {
+ font-size:19px;
+ line-height:12px;
+}
+
+.custom-builder {
+ background:var(--preto);
+ border:2px solid var(--agua);
+ border-radius:8px;
+ padding:18px;
+ margin-bottom:20px;
+}
+
+.custom-builder h3 {
+ color:var(--agua);
+ font-size:24px;
+ margin-bottom:6px;
+}
+
+.ingredients-grid {
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:8px;
+ margin:12px 0 16px;
+}
+
+.ingredients-grid label {
+ display:flex;
+ align-items:center;
+ gap:8px;
+ font-size:13px;
+ font-weight:600;
+ background:var(--card);
+ padding:9px 10px;
+ border:1px solid var(--linha);
+ border-radius:4px;
+ cursor:pointer;
+ margin:0;
+}
+
+.ingredients-grid input {
+ width:auto;
+ accent-color:var(--agua);
+}
+
+.empty-search {
+ text-align:center;
+ padding:35px 15px;
+ color:var(--muted);
+ border:1px dashed var(--linha);
+ border-radius:7px;
+ margin-top:20px;
+}
+
+.cartbar {
+ position:fixed;
+ bottom:14px;
+ left:50%;
+ transform:translateX(-50%);
+ z-index:15;
+ width:calc(100% - 28px);
+ max-width:620px;
+ background:var(--sol);
+ color:#000;
+ padding:13px 16px;
+ border-radius:6px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:12px;
+ box-shadow:0 8px 30px #000b;
+ border:1px solid #ffca7c;
+}
+
+.cartbar[hidden] { display:none; }
+
+.cart-info span {
+ display:block;
+ font-size:11px;
+ font-weight:800;
+}
+
+.cart-info strong {
+ display:block;
+ font:italic 800 27px var(--titulo);
+}
+
+.checkout {
+ background:#000;
+ color:white;
+ border:0;
+ border-radius:4px;
+ padding:13px 18px;
+ font-size:12px;
+ font-weight:900;
+ text-transform:uppercase;
+}
+
+.track-bar {
+ position:fixed;
+ top:15px;
+ right:15px;
+ z-index:12;
+ background:#1a1a18;
+ border:1px solid var(--agua);
+ color:var(--texto);
+ padding:8px 12px;
+ border-radius:20px;
+ font-size:11px;
+ font-weight:800;
+ display:flex;
+ align-items:center;
+ gap:6px;
+ box-shadow:0 4px 12px #0008;
+ text-transform:uppercase;
+}
+
+.track-bar[hidden] { display:none; }
+
+footer {
+ background:var(--areia);
+ color:#111;
+ text-align:center;
+ margin-top:30px;
+ padding:35px 0 100px;
+}
+
+.footer-shell {
+ width:45px;
+ height:32px;
+ stroke:#111;
+ fill:none;
+ stroke-width:2.5;
+ margin-bottom:10px;
+}
+
+footer h2 { font-size:36px; }
+footer p { font-size:14px; font-weight:700; line-height:1.5; }
+footer strong { display:block; margin:17px 0; font-size:15px; }
+
+.footer-contact {
+ display:inline-block;
+ background:#111;
+ color:var(--areia);
+ text-decoration:none;
+ font-size:12px;
+ font-weight:900;
+ padding:12px 20px;
+ border-radius:4px;
+ margin:5px 0 12px;
+}
+
+.footer-links {
+ display:flex;
+ justify-content:center;
+ flex-wrap:wrap;
+ gap:18px;
+ margin-top:22px;
+}
+
+.footer-links button {
+ background:none;
+ border:0;
+ color:#111;
+ text-decoration:underline;
+ font-weight:800;
+ font-size:12px;
+ padding:5px;
+}
+
+.modal {
+ display:none;
+ position:fixed;
+ inset:0;
+ z-index:30;
+ background:#000d;
+ align-items:center;
+ justify-content:center;
+ padding:12px;
+}
+
+.modal.open { display:flex; }
+
+.panel {
+ background:var(--preto);
+ border:1px solid var(--linha);
+ border-radius:8px;
+ width:100%;
+ max-width:540px;
+ max-height:92vh;
+ overflow:auto;
+ padding:20px;
+}
+
+.panel-head {
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:10px;
+ padding-bottom:13px;
+ border-bottom:1px solid var(--linha);
+ margin-bottom:12px;
+}
+
+.panel-head h2 { font-size:32px; }
+
+.close {
+ background:#222;
+ color:white;
+ border:1px solid #444;
+ border-radius:4px;
+ width:38px;
+ height:38px;
+ font-size:22px;
+ flex-shrink:0;
+}
+
+.cartline {
+ display:grid;
+ grid-template-columns:1fr auto;
+ gap:8px;
+ padding:13px 0;
+ border-bottom:1px solid var(--linha);
+}
+
+.cartline strong { font-size:14px; }
+.cartline small {
+ display:block;
+ color:var(--muted);
+ margin-top:4px;
+ font-size:12px;
+}
+
+.qty {
+ display:flex;
+ align-items:center;
+ gap:8px;
+}
+
+.qty button {
+ width:32px;
+ height:32px;
+ border:0;
+ border-radius:4px;
+ background:var(--agua);
+ color:#000;
+ font-size:18px;
+ font-weight:900;
+}
+
+.coupon-box {
+ display:flex;
+ gap:8px;
+ margin:12px 0;
+}
+
+.coupon-box input {
+ text-transform:uppercase;
+ min-width:0;
+}
+
+.apply-coupon {
+ background:var(--agua);
+ color:#000;
+ border:0;
+ font-weight:900;
+ padding:0 16px;
+ border-radius:4px;
+ text-transform:uppercase;
+ font-size:12px;
+}
+
+.coupon-tag,.discount-tag {
+ color:var(--sol);
+ font-size:13px;
+ font-weight:800;
+ display:flex;
+ justify-content:space-between;
+ gap:10px;
+ padding:7px 0;
+}
+
+.discount-tag {
+ border-bottom:1px dashed var(--linha);
+}
+
+.total {
+ display:flex;
+ justify-content:space-between;
+ padding:17px 0;
+ font-weight:900;
+ font-size:17px;
+ gap:10px;
+ border-top:1px solid var(--linha);
+ border-bottom:1px solid var(--linha);
+ margin-top:10px;
+}
+
+label {
+ display:block;
+ font-size:13px;
+ font-weight:800;
+ margin:13px 0 6px;
+}
+
+input,textarea,select {
+ width:100%;
+ padding:12px;
+ background:var(--card);
+ color:white;
+ border:1px solid #45453d;
+ border-radius:4px;
+ outline:none;
+}
+
+input:focus,textarea:focus,select:focus {
+ border-color:var(--agua);
+}
+
+textarea { min-height:65px; resize:vertical; }
+
+.radio-row {
+ display:flex;
+ gap:18px;
+ flex-wrap:wrap;
+}
+
+.radio-row label {
+ display:flex;
+ align-items:center;
+ gap:7px;
+}
+
+.radio-row input { width:auto; }
+
+.send {
+ width:100%;
+ margin-top:17px;
+ padding:15px;
+ border:0;
+ border-radius:4px;
+ background:var(--agua);
+ color:#000;
+ font-size:13px;
+ font-weight:900;
+ text-transform:uppercase;
+}
+
+.legal-content {
+ color:var(--texto);
+ font-size:14px;
+ line-height:1.7;
+}
+
+.legal-content h3 {
+ color:var(--agua);
+ margin-top:22px;
+ font-size:22px;
+}
+
+.legal-content p { color:#D1CBBE; }
+
+.order-history-card {
+ background:var(--card);
+ border:1px solid var(--linha);
+ padding:12px;
+ border-radius:6px;
+ margin-bottom:10px;
+ font-size:13px;
+}
+
+.order-history-card header {
+ display:flex;
+ justify-content:space-between;
+ gap:10px;
+ font-weight:800;
+ color:var(--sol);
+ margin-bottom:6px;
+}
+
+button:focus-visible,a:focus-visible {
+ outline:2px solid var(--sol);
+ outline-offset:3px;
+}
+
+@media(max-width:480px) {
+ .wrap { padding:0 15px; }
+ .hero { padding:30px 0 26px; }
+ .logo { font-size:61px; }
+ .logo span { font-size:55px; }
+ .slogan { font-size:24px; }
+ .menu-intro h1 { font-size:35px; }
+ h2 { font-size:34px; }
+ .product { padding:14px; }
+ h3 { font-size:23px; }
+ .price { font-size:27px; }
+ .add { min-width:112px; padding:10px; font-size:11px; }
+ .panel { padding:15px; }
+ .track-bar { top:8px; right:8px; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+ html { scroll-behavior:auto; }
+ * { transition:none !important; }
 }
 </style>
 </head>
+
 <body>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-<symbol id="shell" viewBox="0 0 64 44">
-<path d="M4 40C4 18 16 5 32 5s28 13 28 35zM32 5v35M4 40h56M18 12l6 14h16l6-14M24 26l-6 14M40 26l6 14M24 26h16"/>
-</symbol>
+ <symbol id="shell" viewBox="0 0 64 44">
+  <path d="M4 40C4 18 16 5 32 5s28 13 28 35zM32 5v35M4 40h56M18 12l6 14h16l6-14M24 26l-6 14M40 26l6 14M24 26h16"/>
+ </symbol>
 </svg>
 
+<button class="track-bar" id="openTrackModal" hidden type="button">
+ 📦 Meus Pedidos
+</button>
+
 <header class="hero">
-<div class="wrap">
-<div class="logo">
-<svg class="shell" viewBox="0 0 64 44"><use href="#shell"/></svg>
-Tuga's <span>Beach</span>
-</div>
-<div class="sub">Pastéis &amp; Gelados</div>
-<p class="slogan">Um casco de sabor<br>em cada mordida</p>
-<p class="intro">Escolha seus pastéis, monte seu pedido e envie pelo WhatsApp.</p>
-</div>
+ <div class="wrap">
+  <div class="brand-label">Sabor com identidade</div>
+
+  <div class="logo">
+   <svg class="shell" viewBox="0 0 64 44" aria-hidden="true">
+    <use href="#shell"></use>
+   </svg>
+   Tuga's <span>Beach</span>
+  </div>
+
+  <div class="sub">Pastéis &amp; Gelados</div>
+
+  <p class="slogan">Um casco de sabor<br>em cada mordida</p>
+
+  <p class="intro">
+   Escolha seus favoritos, monte seu combo e peça pelo WhatsApp.
+   Seu próximo sabor favorito começa aqui.
+  </p>
+
+  <div class="hero-bottom">
+   <span class="hero-tag">Cardápio digital</span>
+   <span class="hero-tag">Peça pelo WhatsApp</span>
+  </div>
+
+  <div class="delivery-apps">
+   <a href="https://www.ifood.com.br" target="_blank" class="app-btn ifood" rel="noopener noreferrer">
+    🛵 iFood
+   </a>
+   <a href="https://www.99app.com" target="_blank" class="app-btn app99" rel="noopener noreferrer">
+    🟡 99Food
+   </a>
+  </div>
+ </div>
 </header>
 
-<nav><ul id="categories"></ul></nav>
+<div class="sticky-container">
+ <div class="search-box-wrapper">
+  <input type="search" id="searchInput" class="search-input" placeholder="🔍 Buscar por sabor ou ingrediente..." aria-label="Buscar produtos">
+ </div>
+ <nav aria-label="Categorias do cardápio">
+  <ul id="categories"></ul>
+ </nav>
+</div>
+
 <main class="wrap" id="menu"></main>
 
 <footer>
-<div class="wrap">
-<h2>Peça pelo WhatsApp</h2>
-<p>Monte seu carrinho e envie seu pedido em poucos passos.</p>
-<strong>WhatsApp: (13) 98853-3014</strong>
-<p style="font-size:13px">Preços-base provisórios. Confirme a disponibilidade e a entrega com a loja.</p>
-</div>
+ <div class="wrap">
+  <svg class="footer-shell" viewBox="0 0 64 44" aria-hidden="true">
+   <use href="#shell"></use>
+  </svg>
+
+  <h2>Tuga's Beach</h2>
+  <p>Seu próximo sabor favorito começa aqui.</p>
+
+  <strong>WhatsApp: (13) 98853-3014</strong>
+
+  <a class="footer-contact" href="https://wa.me/5513988533014" target="_blank" rel="noopener noreferrer">
+   FALAR COM A LOJA
+  </a>
+
+  <p style="font-size:12px;font-weight:600">
+   Consulte a disponibilidade e as condições de entrega diretamente com a loja.
+  </p>
+
+  <div class="footer-links">
+   <button type="button" data-legal="privacy">Política de Privacidade</button>
+   <button type="button" data-legal="terms">Termos e Condições</button>
+  </div>
+
+  <p style="font-size:11px;font-weight:400;margin-top:22px">
+   Tuga's Beach. Todos os direitos reservados.
+  </p>
+ </div>
 </footer>
 
 <div class="cartbar" id="cartbar" hidden>
-<div><span id="count">0 itens</span><strong id="barTotal">R$ 0,00</strong></div>
-<button class="checkout" id="openCart">Ver carrinho</button>
+ <div class="cart-info">
+  <span id="count">0 itens</span>
+  <strong id="barTotal">R$ 0,00</strong>
+ </div>
+ <button class="checkout" id="openCart" type="button">Ver carrinho</button>
 </div>
 
-<div class="modal" id="modal" role="dialog" aria-modal="true">
-<div class="panel">
-<div class="panel-head"><h2>Seu pedido</h2><button class="close" id="closeCart" type="button">×</button></div>
-<div id="cartItems"></div>
-<div class="total"><span>Total dos produtos</span><span id="total">R$ 0,00</span></div>
-<form id="orderForm">
-<label for="customer">Seu nome *</label>
-<input id="customer" required maxlength="80" autocomplete="name" placeholder="Como podemos te chamar?">
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+ <div class="panel">
+  <div class="panel-head">
+   <h2 id="cartTitle">Seu pedido</h2>
+   <button class="close" id="closeCart" type="button" aria-label="Fechar">×</button>
+  </div>
 
-<label for="phone">Telefone para contato *</label>
-<input id="phone" type="tel" required maxlength="25" autocomplete="tel" placeholder="DDD + telefone">
+  <div id="cartItems"></div>
 
-<label>Como vai receber?</label>
-<div class="radio-row">
-<label><input type="radio" name="delivery" value="Entrega" checked> Entrega</label>
-<label><input type="radio" name="delivery" value="Retirada"> Retirada</label>
+  <div style="margin-top:15px;border-top:1px solid var(--linha);padding-top:12px">
+   <label for="couponInput">Possui cupom de desconto? (1 por pedido)</label>
+   <div class="coupon-box">
+    <input type="text" id="couponInput" placeholder="Ex.: TUGA2, TUGA5 ou TUGA10">
+    <button type="button" class="apply-coupon" id="applyCouponBtn">Aplicar</button>
+   </div>
+   <p id="couponFeedback" style="font-size:12px;color:var(--muted);margin-top:4px"></p>
+  </div>
+
+  <div id="discountBox"></div>
+  <div id="couponDisplayBox"></div>
+
+  <div class="total">
+   <span>Total final</span>
+   <span id="total">R$ 0,00</span>
+  </div>
+
+  <form id="orderForm">
+   <label for="customer">Seu nome *</label>
+   <input id="customer" required maxlength="80" autocomplete="name" placeholder="Como podemos te chamar?">
+
+   <label for="phone">Telefone para contato *</label>
+   <input id="phone" type="tel" required maxlength="25" autocomplete="tel" placeholder="DDD + telefone">
+
+   <label>Como vai receber?</label>
+   <div class="radio-row">
+    <label><input type="radio" name="delivery" value="Entrega" checked> Entrega</label>
+    <label><input type="radio" name="delivery" value="Retirada"> Retirada</label>
+   </div>
+
+   <div id="addressBox">
+    <label for="address">Endereço de entrega *</label>
+    <textarea id="address" required maxlength="250" placeholder="Rua, número, bairro e referência"></textarea>
+   </div>
+
+   <label for="payment">Forma de pagamento</label>
+   <select id="payment">
+    <option>Pix (confirmar com a loja)</option>
+    <option>Dinheiro na entrega/retirada</option>
+    <option>Cartão na entrega/retirada</option>
+    <option>Mercado Pago (combinar com a loja)</option>
+   </select>
+
+   <label for="notes">Observações (opcional)</label>
+   <textarea id="notes" maxlength="300" placeholder="Ex.: Troco para R$ 50, sem cebola, etc."></textarea>
+
+   <button class="send" type="submit">Enviar pedido pelo WhatsApp</button>
+  </form>
+ </div>
 </div>
 
-<div id="addressBox">
-<label for="address">Endereço de entrega *</label>
-<textarea id="address" required maxlength="250" placeholder="Rua, número, bairro e referência"></textarea>
+<div class="modal" id="trackModal" role="dialog" aria-modal="true" aria-labelledby="trackTitle">
+ <div class="panel">
+  <div class="panel-head">
+   <h2 id="trackTitle">Meus Pedidos</h2>
+   <button class="close" id="closeTrack" type="button" aria-label="Fechar">×</button>
+  </div>
+  <div id="trackContent"></div>
+ </div>
 </div>
 
-<label for="payment">Forma de pagamento</label>
-<select id="payment">
-<option>Pix (confirmar com a loja)</option>
-<option>Dinheiro na entrega/retirada</option>
-<option>Cartão na entrega/retirada</option>
-<option>Mercado Pago (combinar com a loja)</option>
-</select>
-
-<label for="notes">Observações (opcional)</label>
-<textarea id="notes" maxlength="300" placeholder="Alguma observação sobre o pedido?"></textarea>
-
-<button class="send" type="submit">Enviar pedido pelo WhatsApp</button>
-<p class="legal">O pedido será enviado para confirmação no WhatsApp. Este site ainda não processa pagamentos nem registra pedidos no banco de dados.</p>
-</form>
+<div class="modal" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
+ <div class="panel">
+  <div class="panel-head">
+   <h2 id="privacyTitle">Privacidade</h2>
+   <button class="close" type="button" data-close-legal aria-label="Fechar">×</button>
+  </div>
+  <div class="legal-content">
+   <h3>Política de Privacidade</h3>
+   <p>Os dados informados no formulário de pedido são utilizados para identificar o pedido, entrar em contato com o cliente e organizar a entrega ou retirada.</p>
+   <p>O site utiliza o armazenamento local do navegador para manter o carrinho e o histórico de pedidos neste aparelho. Essas informações podem ser apagadas pelo próprio usuário ao limpar os dados do navegador.</p>
+   <p>Ao enviar um pedido, o cliente será direcionado ao WhatsApp da Tuga's Beach. O tratamento das informações também estará sujeito às políticas do WhatsApp.</p>
+   <p>Não informe dados pessoais desnecessários no campo de observações.</p>
+  </div>
+ </div>
 </div>
+
+<div class="modal" id="termsModal" role="dialog" aria-modal="true" aria-labelledby="termsTitle">
+ <div class="panel">
+  <div class="panel-head">
+   <h2 id="termsTitle">Termos e Condições</h2>
+   <button class="close" type="button" data-close-legal aria-label="Fechar">×</button>
+  </div>
+  <div class="legal-content">
+   <h3>Termos e Condições de Uso</h3>
+   <p>Os produtos e preços apresentados correspondem às informações disponibilizadas pela Tuga's Beach e podem ser atualizados pela loja.</p>
+   <p>O envio pelo WhatsApp representa uma solicitação de pedido. A confirmação depende da disponibilidade dos produtos, da taxa de entrega e da confirmação da loja.</p>
+   <p>Os descontos de combo e cupons são calculados pelo próprio site e deverão ser confirmados pela loja no atendimento.</p>
+   <p>O histórico exibido em “Meus Pedidos” fica salvo somente no aparelho utilizado e não representa acompanhamento em tempo real do preparo ou da entrega.</p>
+  </div>
+ </div>
 </div>
 
 <script>
+"use strict";
+
 const WHATSAPP = "5513988533014";
+const CART_KEY = "tugas_cart_v2";
+const CUSTOM_KEY = "tugas_custom_products_v2";
+const HISTORY_KEY = "tugas_orders_v2";
 
 const MENU = [
-{
- id:"tradicionais", title:"Tradicionais",
- note:"Clássicos de feira e lanchonete.",
- items:[
-  ["Pastel de Carne","Carne moída refogada com cebola, tomate, alho, azeitona e cheiro-verde.",11],
-  ["Pastel de Queijo","Queijo mussarela derretido.",11],
-  ["Pastel de Pizza","Queijo mussarela, presunto, tomate picado e orégano.",12],
-  ["Pastel de Frango com Catupiry","Frango desfiado temperado com requeijão cremoso tipo Catupiry.",13],
-  ["Pastel de Palmito","Palmito picado refogado com temperos.",13],
-  ["Pastel de Carne com Queijo","Carne moída refogada com queijo mussarela.",13],
-  ["Pastel de Calabresa com Queijo","Calabresa fatiada ou moída com queijo mussarela.",12]
- ]
-},
-{
- id:"especiais", title:"Especiais",
- note:"Recheios combinados e ingredientes especiais.",
- items:[
-  ["Pastel Português","Presunto, queijo, tomate, cebola, azeitona, ervilha e ovo cozido.",16],
-  ["Pastel de Camarão","Camarões refogados com temperos. Cremes adicionais devem ser confirmados.",22],
-  ["Pastel Bauru","Presunto, queijo mussarela e rodelas de tomate.",12],
-  ["Pastel Quatro Queijos","Mix de queijos selecionados.",15],
-  ["Pastel de Bacon com Queijo","Bacon em cubos com queijo mussarela.",14],
-  ["Pastel de Strogonoff de Frango","Frango ao molho cremoso de strogonoff com champignon.",16],
-  ["Pastel de Carne Seca com Catupiry","Carne seca desfiada com cebola e requeijão cremoso.",18]
- ]
-},
-{
- id:"doces", title:"Pastéis Doces",
- note:"Uma opção doce para fechar o pedido.",
- items:[
-  ["Pastel de Nutella","Creme de avelã com cacau.",16],
-  ["Pastel de Chocolate","Recheio cremoso de chocolate.",13],
-  ["Pastel de Doce de Leite","Doce de leite cremoso.",11],
-  ["Pastel de Romeu e Julieta","Goiabada cremosa com queijo.",12],
-  ["Pastel de Banana com Canela","Banana com açúcar e canela.",11],
-  ["Pastel de Prestígio","Chocolate cremoso com coco ralado.",13]
- ]
-}
+ {
+  id:"monte-seu-pastel",
+  title:"Monte Seu Pastel",
+  priceLabel:"R$ 23,00",
+  note:"Escolha até 3 ingredientes de sua preferência.",
+  isCustom:true,
+  items:[]
+ },
+ {
+  id:"bebidas",
+  title:"Bebidas & Refrescos",
+  priceLabel:"A partir de R$ 5,00",
+  note:"Bebidas geladas para acompanhar.",
+  items:[
+   {id:101,name:"Coca-Cola Lata 350ml",price:6,isDrink:true,ingredients:"Lata 350ml"},
+   {id:102,name:"Coca-Cola Zero Lata 350ml",price:6,isDrink:true,ingredients:"Sem açúcar, 350ml"},
+   {id:103,name:"Guaraná Antarctica Lata 350ml",price:6,isDrink:true,ingredients:"Lata 350ml"},
+   {id:104,name:"Fanta Laranja Lata 350ml",price:6,isDrink:true,ingredients:"Lata 350ml"},
+   {id:105,name:"Fanta Uva Lata 350ml",price:6,isDrink:true,ingredients:"Lata 350ml"},
+   {id:106,name:"Sprite Lata 350ml",price:6,isDrink:true,ingredients:"Lata 350ml"},
+   {id:107,name:"Itubaína Retrô Lata 350ml",price:6,isDrink:true,ingredients:"O clássico sabor tutti-frutti"},
+   {id:108,name:"Coca-Cola 2 Litros",price:14,isDrink:true,ingredients:"Garrafa 2L"},
+   {id:109,name:"Guaraná Antarctica 2 Litros",price:14,isDrink:true,ingredients:"Garrafa 2L"},
+   {id:110,name:"Água Mineral 500ml",price:5,isDrink:true,ingredients:"Com ou sem gás"},
+   {id:111,name:"Suco Del Valle Lata",price:8,isDrink:true,ingredients:"Sabores variados"}
+  ]
+ },
+ {
+  id:"salgados-tradicionais",
+  title:"Salgados Tradicionais",
+  priceLabel:"R$ 14,00",
+  note:"Os clássicos que todo mundo ama.",
+  items:[
+   {id:1,name:"Pastel Queijo",price:14,ingredients:"Mussarela derretida e orégano"},
+   {id:2,name:"Pastel Carne",price:14,ingredients:"Carne moída especial temperada"},
+   {id:3,name:"Pastel Pizza",price:14,ingredients:"Mussarela, tomate e orégano"},
+   {id:4,name:"Pastel Frango",price:14,ingredients:"Frango desfiado temperado da casa"},
+   {id:5,name:"Pastel Calabresa",price:14,ingredients:"Calabresa fatiada e acebolada"},
+   {id:6,name:"Pastel Bauru",price:14,ingredients:"Presunto, mussarela e tomate"}
+  ]
+ },
+ {
+  id:"salgados-especiais",
+  title:"Salgados Especiais",
+  priceLabel:"R$ 17,00",
+  note:"Combinações duplas com bastante recheio.",
+  items:[
+   {id:7,name:"Pastel Carne com Queijo",price:17,ingredients:"Carne temperada com mussarela"},
+   {id:8,name:"Pastel Carne com Cheddar",price:17,ingredients:"Carne temperada e cheddar cremoso"},
+   {id:9,name:"Pastel Bacon com Queijo",price:17,ingredients:"Bacon crocante e mussarela"},
+   {id:10,name:"Pastel Calabresa com Catupiry",price:17,ingredients:"Calabresa e requeijão Catupiry"},
+   {id:11,name:"Pastel Calabresa com Queijo",price:17,ingredients:"Calabresa fatiada com mussarela"},
+   {id:12,name:"Pastel Calabresa com Cheddar",price:17,ingredients:"Calabresa com cheddar cremoso"},
+   {id:13,name:"Pastel Frango com Catupiry",price:17,ingredients:"Frango desfiado e Catupiry"},
+   {id:14,name:"Pastel Frango com Cheddar",price:17,ingredients:"Frango desfiado com cheddar"},
+   {id:15,name:"Pastel Frango com Queijo",price:17,ingredients:"Frango desfiado com mussarela"},
+   {id:16,name:"Pastel Brócolis com Queijo",price:17,ingredients:"Brócolis temperado e mussarela"}
+  ]
+ },
+ {
+  id:"salgados-premium",
+  title:"Salgados Premium",
+  priceLabel:"R$ 20,00",
+  note:"Recheios nobres e artesanais.",
+  items:[
+   {id:17,name:"Pastel Costela com Queijo",price:20,ingredients:"Costela desfiada no bafo e mussarela"},
+   {id:18,name:"Pastel Camarão com Queijo",price:20,ingredients:"Camarão refogado no azeite e mussarela"},
+   {id:19,name:"Pastel Camarão com Catupiry",price:20,ingredients:"Camarão refogado e Catupiry"},
+   {id:20,name:"Pastel Carne Seca com Catupiry",price:20,ingredients:"Carne seca desfiada e Catupiry"},
+   {id:21,name:"Pastel Carne Seca com Queijo",price:20,ingredients:"Carne seca desfiada com mussarela"}
+  ]
+ },
+ {
+  id:"doces-tradicionais",
+  title:"Doces Tradicionais",
+  priceLabel:"R$ 14,00",
+  note:"Clássicos para a sobremesa perfeita.",
+  items:[
+   {id:22,name:"Pastel Chocolate",price:14,ingredients:"Chocolate ao leite derretido"},
+   {id:23,name:"Pastel Banana com Doce de Leite",price:14,ingredients:"Banana em rodelas e doce de leite"},
+   {id:24,name:"Pastel Romeu e Julieta",price:14,ingredients:"Goiabada cremosa com mussarela"},
+   {id:25,name:"Pastel Doce de Leite",price:14,ingredients:"Doce de leite cremoso"},
+   {id:26,name:"Pastel Banana",price:14,ingredients:"Banana fresca com açúcar e canela"}
+  ]
+ },
+ {
+  id:"doces-especiais",
+  title:"Doces Especiais",
+  priceLabel:"R$ 17,00",
+  note:"Sabores marcantes e muito recheio.",
+  items:[
+   {id:27,name:"Pastel Pistache",price:17,ingredients:"Creme de pistache artesanal"},
+   {id:28,name:"Pastel Ninho",price:17,ingredients:"Creme de Leite Ninho"},
+   {id:29,name:"Pastel Prestígio",price:17,ingredients:"Chocolate com coco ralado"}
+  ]
+ },
+ {
+  id:"doces-premium",
+  title:"Doces Premium",
+  priceLabel:"R$ 20,00",
+  note:"A combinação máxima de indulgência.",
+  items:[
+   {id:30,name:"Pastel Nutella",price:20,ingredients:"Nutella"},
+   {id:31,name:"Pastel KitKat",price:20,ingredients:"Chocolate com pedaços de KitKat"},
+   {id:32,name:"Pastel Ovomaltine",price:20,ingredients:"Creme de chocolate com crocante de Ovomaltine"},
+   {id:33,name:"Pastel Negresco",price:20,ingredients:"Creme de biscoito Negresco"},
+   {id:34,name:"Pastel Nutella com Morango",price:20,ingredients:"Nutella com morangos"},
+   {id:35,name:"Pastel Nutella com M&M",price:20,ingredients:"Nutella com M&M's"},
+   {id:36,name:"Pastel Nutella com Banana",price:20,ingredients:"Nutella com banana"},
+   {id:37,name:"Pastel Ninho com Nutella",price:20,ingredients:"Recheio de Ninho e Nutella"}
+  ]
+ }
 ];
 
-const money = n => n.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
-const products = MENU.flatMap(category => category.items);
-const cart = {};
+const AVAILABLE_INGREDIENTS = [
+ "Mussarela","Catupiry","Cheddar","Carne Moída",
+ "Frango Desfiado","Calabresa","Presunto","Bacon",
+ "Brócolis","Tomate","Milho","Orégano"
+];
 
-document.getElementById("categories").innerHTML = MENU.map((c,i) =>
- `<li><a class="${i===0?'active':''}" href="#${c.id}">${c.title}</a></li>`
-).join("");
+const money = value => Number(value).toLocaleString("pt-BR",{
+ style:"currency",
+ currency:"BRL"
+});
 
-const shellIcon = '<svg viewBox="0 0 64 44" aria-hidden="true"><use href="#shell"/></svg>';
+function readStorage(key,fallback) {
+ try {
+  const value = localStorage.getItem(key);
+  return value ? JSON.parse(value) : fallback;
+ } catch(error) {
+  return fallback;
+ }
+}
 
-document.getElementById("menu").innerHTML = MENU.map(c => `
-<section id="${c.id}">
- <div class="heading">${shellIcon}<h2>${c.title}</h2></div>
- <p class="note">${c.note}</p>
- ${c.items.map(item => `
- <article class="product">
-  <h3>${item[0]}</h3>
-  <p class="desc">${item[1]}</p>
-  <div class="bottom">
-   <span class="price">${money(item[2])}</span>
-   <button class="add" type="button" data-add="${item[0]}">+ Adicionar</button>
+function saveStorage(key,value) {
+ try {
+  localStorage.setItem(key,JSON.stringify(value));
+ } catch(error) {
+  console.warn("Não foi possível salvar os dados neste aparelho.",error);
+ }
+}
+
+function escapeHTML(value) {
+ return String(value ?? "").replace(/[&<>"']/g,char => ({
+  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+ }[char]));
+}
+
+let customProducts = readStorage(CUSTOM_KEY,[]);
+if (!Array.isArray(customProducts)) customProducts = [];
+
+const products = MENU.flatMap(category => category.items).concat(customProducts);
+
+let cart = readStorage(CART_KEY,{});
+if (!cart || typeof cart !== "object" || Array.isArray(cart)) cart = {};
+
+let activeCoupon = null;
+
+const categoriesElement = document.getElementById("categories");
+const menuElement = document.getElementById("menu");
+
+const shellIcon = `
+ <svg viewBox="0 0 64 44" aria-hidden="true">
+  <use href="#shell"></use>
+ </svg>
+`;
+
+function getProduct(id) {
+ return products.find(product => String(product.id) === String(id));
+}
+
+function getCartEntries() {
+ return Object.entries(cart).filter(([id,quantity]) =>
+  Number(quantity) > 0 && getProduct(id)
+ );
+}
+
+function getRawTotal() {
+ return getCartEntries().reduce((sum,[id,quantity]) => {
+  const product = getProduct(id);
+  return sum + product.price * Number(quantity);
+ },0);
+}
+
+function getPastelCount() {
+ return getCartEntries().reduce((sum,[id,quantity]) => {
+  const product = getProduct(id);
+  return sum + (product && !product.isDrink ? Number(quantity) : 0);
+ },0);
+}
+
+function getComboDiscount() {
+ const quantity = getPastelCount();
+ if (quantity < 5) return 0;
+ return Math.min(5,2 + (quantity - 5) * 0.5);
+}
+
+function getFinalTotal() {
+ const raw = getRawTotal();
+ const combo = getComboDiscount();
+ const coupon = activeCoupon ? activeCoupon.discount : 0;
+ return Math.max(0,raw - combo - coupon);
+}
+
+function renderCategories() {
+ categoriesElement.innerHTML = MENU.map((category,index) => `
+  <li>
+   <a class="${index === 0 ? "active" : ""}" href="#${category.id}">
+    ${escapeHTML(category.title)}
+    <span class="nav-count">${category.isCustom ? "★" : category.items.length}</span>
+   </a>
+  </li>
+ `).join("");
+}
+
+function renderMenu(filterText = "") {
+ const query = filterText.toLocaleLowerCase("pt-BR").trim();
+ let foundAny = false;
+
+ const content = MENU.map(category => {
+  if (category.isCustom) {
+   if (query) return "";
+
+   foundAny = true;
+
+   return `
+    <section id="${category.id}">
+     <div class="heading">${shellIcon}<h2>${category.title}</h2></div>
+     <p class="note">${category.note}
+      <strong style="color:var(--sol);margin-left:5px">${category.priceLabel}</strong>
+     </p>
+
+     <div class="custom-builder">
+      <h3>Personalize seu Pastel</h3>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:10px">
+       Selecione no máximo <strong>3 ingredientes</strong>:
+      </p>
+
+      <div class="ingredients-grid">
+       ${AVAILABLE_INGREDIENTS.map(ingredient => `
+        <label>
+         <input type="checkbox" name="custom_ing" value="${escapeHTML(ingredient)}">
+         ${escapeHTML(ingredient)}
+        </label>
+       `).join("")}
+      </div>
+
+      <button type="button" class="add" id="addCustom" style="width:100%">
+       <span class="add-symbol">+</span>
+       Adicionar Pastel Personalizado (R$ 23,00)
+      </button>
+     </div>
+    </section>
+   `;
+  }
+
+  const items = category.items.filter(item => {
+   const name = item.name.toLocaleLowerCase("pt-BR");
+   const ingredients = (item.ingredients || "").toLocaleLowerCase("pt-BR");
+   return !query || name.includes(query) || ingredients.includes(query);
+  });
+
+  if (!items.length) return "";
+  foundAny = true;
+
+  return `
+   <section id="${category.id}">
+    <div class="heading">${shellIcon}<h2>${escapeHTML(category.title)}</h2></div>
+    <p class="note">
+     ${escapeHTML(category.note)}
+     <strong style="color:var(--sol);margin-left:5px">${escapeHTML(category.priceLabel)}</strong>
+    </p>
+
+    ${items.map(item => `
+     <article class="product">
+      <div class="product-info">
+       <div class="product-top"><h3>${escapeHTML(item.name)}</h3></div>
+       ${item.ingredients ? `<p class="ingredients">📍 ${escapeHTML(item.ingredients)}</p>` : ""}
+       <p class="desc">${escapeHTML(category.title)}</p>
+      </div>
+      <div class="bottom">
+       <span class="price">${money(item.price)}</span>
+       <button class="add" type="button" data-add="${escapeHTML(item.id)}">
+        <span class="add-symbol">+</span> Adicionar
+       </button>
+      </div>
+     </article>
+    `).join("")}
+   </section>
+  `;
+ }).join("");
+
+ menuElement.innerHTML = `
+  <div class="menu-intro">
+   <p class="menu-eyebrow">Escolha o seu sabor</p>
+   <h1>Nosso cardápio</h1>
+   <p>Pastéis artesanais e bebidas geladas.</p>
   </div>
- </article>`).join("")}
-</section>`).join("");
 
-function getProduct(name) {
- return products.find(p => p[0] === name);
+  <div class="combo-banner">
+   🔥 <strong>MONTE SEU COMBO:</strong>
+   A partir de 5 pastéis, desconto automático de R$ 2,00,
+   com acréscimo progressivo e limite de R$ 5,00.
+  </div>
+
+  ${content}
+  ${!foundAny ? `<div class="empty-search">Nenhum produto encontrado. Tente outro sabor ou ingrediente.</div>` : ""}
+ `;
+
+ bindAddButtons();
+
+ const customButton = document.getElementById("addCustom");
+ if (customButton) customButton.addEventListener("click",addCustomPastelToCart);
+
+ updateNavigation();
+}
+
+function updateNavigation() {
+ const links = [...categoriesElement.querySelectorAll("a")];
+ const visibleSections = [...menuElement.querySelectorAll("section")];
+
+ links.forEach(link => {
+  const target = link.getAttribute("href").slice(1);
+  const sectionExists = visibleSections.some(section => section.id === target);
+  link.parentElement.hidden = !sectionExists;
+ });
+}
+
+function addCustomPastelToCart() {
+ const checked = [...document.querySelectorAll('input[name="custom_ing"]:checked')];
+
+ if (checked.length === 0) {
+  alert("Selecione pelo menos 1 ingrediente.");
+  return;
+ }
+
+ if (checked.length > 3) {
+  alert("Você pode escolher no máximo 3 ingredientes.");
+  return;
+ }
+
+ const ingredients = checked.map(input => input.value);
+ const id = "custom_" + Date.now() + "_" + Math.floor(Math.random() * 10000);
+
+ const product = {
+  id,
+  name:"Pastel Personalizado",
+  price:23,
+  isCustom:true,
+  ingredients:ingredients.join(", ")
+ };
+
+ customProducts.push(product);
+ products.push(product);
+ saveStorage(CUSTOM_KEY,customProducts);
+
+ cart[id] = (Number(cart[id]) || 0) + 1;
+ saveStorage(CART_KEY,cart);
+
+ renderCart();
+
+ checked.forEach(input => input.checked = false);
+ alert("Pastel personalizado adicionado ao carrinho!");
+}
+
+function bindAddButtons() {
+ document.querySelectorAll("[data-add]").forEach(button => {
+  button.addEventListener("click",() => {
+   const id = button.dataset.add;
+   cart[id] = (Number(cart[id]) || 0) + 1;
+   saveStorage(CART_KEY,cart);
+   renderCart();
+
+   const original = button.innerHTML;
+   button.innerHTML = "Adicionado ✓";
+   button.disabled = true;
+
+   setTimeout(() => {
+    button.innerHTML = original;
+    button.disabled = false;
+   },700);
+  });
+ });
 }
 
 function renderCart() {
- const entries = Object.entries(cart).filter(([name,q]) => q > 0);
- const count = entries.reduce((sum,[name,q]) => sum + q,0);
- const total = entries.reduce((sum,[name,q]) => sum + getProduct(name)[2]*q,0);
+ const entries = getCartEntries();
+ const count = entries.reduce((sum,[id,quantity]) => sum + Number(quantity),0);
+ const rawTotal = getRawTotal();
+ const comboDiscount = getComboDiscount();
+
+ if (activeCoupon && rawTotal < activeCoupon.minVal) {
+  activeCoupon = null;
+  const feedback = document.getElementById("couponFeedback");
+  feedback.style.color = "#ff4d5a";
+  feedback.textContent = "Cupom removido: o carrinho ficou abaixo do valor mínimo.";
+ }
+
+ const couponDiscount = activeCoupon ? activeCoupon.discount : 0;
+ const finalTotal = getFinalTotal();
 
  document.getElementById("cartbar").hidden = count === 0;
  document.getElementById("count").textContent =
-  `${count} ${count===1?"item":"itens"} no carrinho`;
- document.getElementById("barTotal").textContent = money(total);
- document.getElementById("total").textContent = money(total);
+  `${count} ${count === 1 ? "item" : "itens"} no carrinho`;
+
+ document.getElementById("barTotal").textContent = money(finalTotal);
+ document.getElementById("total").textContent = money(finalTotal);
+
+ document.getElementById("discountBox").innerHTML =
+  comboDiscount > 0
+  ? `<div class="discount-tag">
+      <span>🎉 Desconto de combo (${getPastelCount()} pastéis)</span>
+      <span>- ${money(comboDiscount)}</span>
+     </div>`
+  : getPastelCount() > 0
+   ? `<p style="font-size:12px;color:var(--sol);margin:8px 0">
+       💡 Adicione mais ${5 - getPastelCount()} pastel(is) para ativar o desconto.
+      </p>`
+   : "";
+
+ document.getElementById("couponDisplayBox").innerHTML = activeCoupon
+  ? `<div class="coupon-tag">
+      <span>🎟️ Cupom ${escapeHTML(activeCoupon.code)}</span>
+      <span>
+       - ${money(activeCoupon.discount)}
+       <button type="button" id="removeCoupon" style="background:none;border:0;color:#ff4d5a;font-weight:bold">Remover</button>
+      </span>
+     </div>`
+  : "";
 
  document.getElementById("cartItems").innerHTML = entries.length
- ? entries.map(([name,q]) => {
-    const p = getProduct(name);
-    return `<div class="cartline">
-      <div><strong>${name}</strong><small>${money(p[2])} cada · ${money(p[2]*q)}</small></div>
-      <div class="qty">
-       <button type="button" data-minus="${name}" aria-label="Diminuir">−</button>
-       <strong>${q}</strong>
-       <button type="button" data-plus="${name}" aria-label="Aumentar">+</button>
+  ? entries.map(([id,quantity]) => {
+     const product = getProduct(id);
+     const details = product.ingredients || "";
+     return `
+      <div class="cartline">
+       <div>
+        <strong>${escapeHTML(product.name)}</strong>
+        ${details ? `<small>${escapeHTML(details)}</small>` : ""}
+        <small>${money(product.price)} cada · ${money(product.price * quantity)}</small>
+       </div>
+       <div class="qty">
+        <button type="button" data-minus="${escapeHTML(id)}" aria-label="Diminuir">−</button>
+        <strong>${quantity}</strong>
+        <button type="button" data-plus="${escapeHTML(id)}" aria-label="Aumentar">+</button>
+       </div>
       </div>
-     </div>`;
-   }).join("")
- : '<p>Seu carrinho está vazio.</p>';
+     `;
+    }).join("")
+  : "<p>Seu carrinho está vazio.</p>";
+
+ saveStorage(CART_KEY,cart);
 
  document.querySelectorAll("[data-minus]").forEach(button => {
-  button.onclick = () => {
-   const name = button.dataset.minus;
-   cart[name]--;
-   if (cart[name] <= 0) delete cart[name];
+  button.addEventListener("click",() => {
+   const id = button.dataset.minus;
+   cart[id] = Number(cart[id]) - 1;
+   if (cart[id] <= 0) delete cart[id];
+   saveStorage(CART_KEY,cart);
    renderCart();
-  };
+  });
  });
+
  document.querySelectorAll("[data-plus]").forEach(button => {
-  button.onclick = () => {
-   const name = button.dataset.plus;
-   cart[name]++;
+  button.addEventListener("click",() => {
+   const id = button.dataset.plus;
+   cart[id] = Number(cart[id]) + 1;
+   saveStorage(CART_KEY,cart);
    renderCart();
-  };
+  });
  });
+
+ const removeButton = document.getElementById("removeCoupon");
+ if (removeButton) {
+  removeButton.addEventListener("click",removeCoupon);
+ }
 }
 
-document.querySelectorAll("[data-add]").forEach(button => {
- button.addEventListener("click", () => {
-  const name = button.dataset.add;
-  cart[name] = (cart[name] || 0) + 1;
-  renderCart();
-  const original = button.textContent;
-  button.textContent = "Adicionado ✓";
-  setTimeout(() => button.textContent = original, 800);
- });
-});
+function applyCoupon() {
+ const code = document.getElementById("couponInput").value.trim().toUpperCase();
+ const feedback = document.getElementById("couponFeedback");
+
+ if (!code) {
+  feedback.style.color = "#ff4d5a";
+  feedback.textContent = "Digite um código de cupom.";
+  return;
+ }
+
+ if (!getCartEntries().length) {
+  feedback.style.color = "#ff4d5a";
+  feedback.textContent = "Adicione produtos antes de aplicar um cupom.";
+  return;
+ }
+
+ const coupons = {
+  TUGA2:{code:"TUGA2",discount:2,minVal:20},
+  DESCONTO2:{code:"DESCONTO2",discount:2,minVal:20},
+  TUGA5:{code:"TUGA5",discount:5,minVal:50},
+  DESCONTO5:{code:"DESCONTO5",discount:5,minVal:50},
+  TUGA10:{code:"TUGA10",discount:10,minVal:70},
+  DESCONTO10:{code:"DESCONTO10",discount:10,minVal:70}
+ };
+
+ const coupon = coupons[code];
+
+ if (!coupon) {
+  feedback.style.color = "#ff4d5a";
+  feedback.textContent = "Cupom inválido ou não reconhecido.";
+  return;
+ }
+
+ if (getRawTotal() < coupon.minVal) {
+  feedback.style.color = "#ff4d5a";
+  feedback.textContent = `Este cupom exige compras de pelo menos ${money(coupon.minVal)}.`;
+  return;
+ }
+
+ activeCoupon = coupon;
+ feedback.style.color = "var(--agua)";
+ feedback.textContent = `Cupom aplicado! Desconto de ${money(coupon.discount)}.`;
+
+ document.getElementById("couponInput").value = "";
+ renderCart();
+}
+
+function removeCoupon() {
+ activeCoupon = null;
+ document.getElementById("couponFeedback").textContent = "Cupom removido.";
+ renderCart();
+}
 
 const modal = document.getElementById("modal");
-document.getElementById("openCart").onclick = () => modal.classList.add("open");
-document.getElementById("closeCart").onclick = () => modal.classList.remove("open");
-modal.addEventListener("click", event => {
- if (event.target === modal) modal.classList.remove("open");
+const trackModal = document.getElementById("trackModal");
+const privacyModal = document.getElementById("privacyModal");
+const termsModal = document.getElementById("termsModal");
+
+function openModal(element) {
+ element.classList.add("open");
+ document.body.classList.add("modal-open");
+}
+
+function closeModal(element) {
+ element.classList.remove("open");
+ if (!document.querySelector(".modal.open")) {
+  document.body.classList.remove("modal-open");
+ }
+}
+
+document.getElementById("openCart").addEventListener("click",() => openModal(modal));
+document.getElementById("closeCart").addEventListener("click",() => closeModal(modal));
+document.getElementById("closeTrack").addEventListener("click",() => closeModal(trackModal));
+
+document.getElementById("openTrackModal").addEventListener("click",() => {
+ renderOrderHistory();
+ openModal(trackModal);
+});
+
+document.getElementById("applyCouponBtn").addEventListener("click",applyCoupon);
+
+document.getElementById("couponInput").addEventListener("keydown",event => {
+ if (event.key === "Enter") {
+  event.preventDefault();
+  applyCoupon();
+ }
+});
+
+[modal,trackModal,privacyModal,termsModal].forEach(element => {
+ element.addEventListener("click",event => {
+  if (event.target === element) closeModal(element);
+ });
 });
 
 document.querySelectorAll('input[name="delivery"]').forEach(input => {
- input.addEventListener("change", () => {
+ input.addEventListener("change",() => {
   const isDelivery = document.querySelector('input[name="delivery"]:checked').value === "Entrega";
   document.getElementById("addressBox").hidden = !isDelivery;
   document.getElementById("address").required = isDelivery;
  });
 });
 
-document.getElementById("orderForm").addEventListener("submit", event => {
+function getOrderHistory() {
+ const history = readStorage(HISTORY_KEY,[]);
+ return Array.isArray(history) ? history : [];
+}
+
+function saveOrderToHistory(order) {
+ const history = getOrderHistory();
+ history.unshift(order);
+ saveStorage(HISTORY_KEY,history.slice(0,20));
+ checkOrderHistoryButton();
+}
+
+function checkOrderHistoryButton() {
+ document.getElementById("openTrackModal").hidden = getOrderHistory().length === 0;
+}
+
+function renderOrderHistory() {
+ const history = getOrderHistory();
+ const container = document.getElementById("trackContent");
+
+ if (!history.length) {
+  container.textContent = "Nenhum pedido recente encontrado neste aparelho.";
+  return;
+ }
+
+ container.innerHTML = history.map((order,index) => `
+  <div class="order-history-card">
+   <header>
+    <span>Pedido #${history.length - index}</span>
+    <span>${escapeHTML(order.date)}</span>
+   </header>
+   <p><strong>Cliente:</strong> ${escapeHTML(order.customer)}</p>
+   <p><strong>Tipo:</strong> ${escapeHTML(order.delivery)}</p>
+   <p><strong>Pagamento:</strong> ${escapeHTML(order.payment)}</p>
+   <p style="color:var(--sol)"><strong>Total:</strong> ${money(order.total)}</p>
+   <div style="margin-top:8px;font-size:12px;color:var(--muted)">
+    <strong>Itens:</strong> ${escapeHTML(order.itemsSummary)}
+   </div>
+   <p style="font-size:11px;color:var(--muted);margin-bottom:0">
+    Pedido registrado neste aparelho. Para confirmar o andamento, fale com a loja.
+   </p>
+  </div>
+ `).join("");
+}
+
+document.getElementById("orderForm").addEventListener("submit",event => {
  event.preventDefault();
 
- const entries = Object.entries(cart).filter(([name,q]) => q > 0);
+ const entries = getCartEntries();
+
  if (!entries.length) {
   alert("Adicione pelo menos um produto ao carrinho.");
   return;
@@ -308,49 +1654,137 @@ document.getElementById("orderForm").addEventListener("submit", event => {
  const payment = document.getElementById("payment").value;
  const notes = document.getElementById("notes").value.trim();
 
- if (!customer || !phone || (delivery === "Entrega" && !address)) {
-  alert("Preencha os campos obrigatórios.");
+ if (!customer || !phone) {
+  alert("Preencha seu nome e telefone.");
   return;
  }
 
- const total = entries.reduce((sum,[name,q]) => sum + getProduct(name)[2]*q,0);
- const lines = entries.map(([name,q]) => `• ${q}x ${name} — ${money(getProduct(name)[2]*q)}`);
+ if (delivery === "Entrega" && !address) {
+  alert("Informe o endereço para entrega.");
+  return;
+ }
+
+ const rawTotal = getRawTotal();
+ const comboDiscount = getComboDiscount();
+ const couponDiscount = activeCoupon ? activeCoupon.discount : 0;
+ const finalTotal = getFinalTotal();
+
+ const lines = entries.map(([id,quantity]) => {
+  const product = getProduct(id);
+  const details = product.ingredients ? ` (${product.ingredients})` : "";
+  return `${quantity}x ${product.name}${details} - ${money(product.price * quantity)}`;
+ });
 
  const message = [
   "Olá, Tuga's Beach! Quero fazer um pedido.",
   "",
-  "*MEU PEDIDO*",
+  "MEU PEDIDO",
   ...lines,
   "",
-  `*Total dos produtos: ${money(total)}*`,
+  `Subtotal: ${money(rawTotal)}`,
+  ...(comboDiscount > 0 ? [`Desconto de combo: -${money(comboDiscount)}`] : []),
+  ...(activeCoupon ? [`Cupom ${activeCoupon.code}: -${money(couponDiscount)}`] : []),
+  `TOTAL DOS PRODUTOS: ${money(finalTotal)}`,
   "",
-  `*Nome:* ${customer}`,
-  `*Telefone:* ${phone}`,
-  `*Recebimento:* ${delivery}`,
-  ...(delivery === "Entrega" ? [`*Endereço:* ${address}`] : []),
-  `*Pagamento:* ${payment}`,
-  ...(notes ? [`*Observações:* ${notes}`] : []),
+  `Nome: ${customer}`,
+  `Telefone: ${phone}`,
+  `Recebimento: ${delivery}`,
+  ...(delivery === "Entrega" ? [`Endereço: ${address}`] : []),
+  `Pagamento: ${payment}`,
+  ...(notes ? [`Observações: ${notes}`] : []),
   "",
   "Por favor, confirme a disponibilidade, a taxa de entrega e o total final."
  ].join("\n");
 
- const url = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`;
- window.open(url,"_blank");
+ const order = {
+  date:new Date().toLocaleDateString("pt-BR") + " " +
+   new Date().toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"}),
+  customer,
+  delivery,
+  payment,
+  total:finalTotal,
+  itemsSummary:entries.map(([id,quantity]) => {
+   const product = getProduct(id);
+   return `${quantity}x ${product.name}`;
+  }).join(", ")
+ };
+
+ const whatsappURL = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`;
+
+ // Mantém o pedido salvo localmente e só limpa o carrinho após preparar a mensagem.
+ saveOrderToHistory(order);
+
+ // Abre o WhatsApp na mesma aba para evitar bloqueio de pop-up em celulares.
+ window.location.href = whatsappURL;
 });
 
-const navLinks = [...document.querySelectorAll("nav a")];
+document.querySelectorAll("[data-legal]").forEach(button => {
+ button.addEventListener("click",() => {
+  const type = button.dataset.legal;
+  if (type === "privacy") openModal(privacyModal);
+  if (type === "terms") openModal(termsModal);
+ });
+});
+
+document.querySelectorAll("[data-close-legal]").forEach(button => {
+ button.addEventListener("click",() => closeModal(button.closest(".modal")));
+});
+
+document.addEventListener("keydown",event => {
+ if (event.key === "Escape") {
+  document.querySelectorAll(".modal.open").forEach(closeModal);
+ }
+});
+
+document.getElementById("searchInput").addEventListener("input",event => {
+ renderMenu(event.target.value);
+});
+
+categoriesElement.addEventListener("click",event => {
+ const link = event.target.closest("a");
+ if (!link) return;
+
+ categoriesElement.querySelectorAll("a").forEach(item => item.classList.remove("active"));
+ link.classList.add("active");
+});
+
 if ("IntersectionObserver" in window) {
  const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
    if (entry.isIntersecting) {
-    navLinks.forEach(link => link.classList.toggle(
-     "active", link.getAttribute("href") === "#" + entry.target.id
-    ));
+    categoriesElement.querySelectorAll("a").forEach(link => {
+     link.classList.toggle(
+      "active",
+      link.getAttribute("href") === "#" + entry.target.id
+     );
+    });
    }
   });
  },{rootMargin:"-25% 0px -65% 0px"});
- document.querySelectorAll("main section").forEach(section => observer.observe(section));
+
+ function observeSections() {
+  observer.disconnect();
+  document.querySelectorAll("#menu section").forEach(section => observer.observe(section));
+ }
+
+ const originalRenderMenu = renderMenu;
+ // A observação é atualizada após cada renderização do cardápio.
+ const menuObserver = new MutationObserver(() => observeSections());
+ menuObserver.observe(menuElement,{childList:true,subtree:true});
 }
+
+renderCategories();
+renderMenu();
+renderCart();
+checkOrderHistoryButton();
+
+// Recupera carrinho antigo e descarta produtos que não existem mais.
+Object.keys(cart).forEach(id => {
+ if (!getProduct(id)) delete cart[id];
+});
+saveStorage(CART_KEY,cart);
+renderCart();
 </script>
+
 </body>
 </html>
