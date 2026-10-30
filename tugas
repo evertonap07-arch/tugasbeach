@@ -1,11 +1,4 @@
-
-from pathlib import Path
-
-# TUGA'S BEACH — GERADOR DO INDEX.HTML
-# Preços provisórios aprovados pelo proprietário.
-# WhatsApp: 55 13 98853-3014
-
-html = r'''<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -361,11 +354,3 @@ if ("IntersectionObserver" in window) {
 </script>
 </body>
 </html>
-'''
-
-arquivo = Path("index.html")
-arquivo.write_text(html, encoding="utf-8")
-
-print("Pronto! Arquivo criado:", arquivo.resolve())
-print("Tamanho:", arquivo.stat().st_size, "bytes")
-print("Abra o index.html no navegador para testar.")
